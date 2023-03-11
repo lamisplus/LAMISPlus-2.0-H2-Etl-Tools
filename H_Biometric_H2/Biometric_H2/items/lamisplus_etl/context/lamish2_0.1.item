@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<talendfile:ContextType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" xmi:id="_0PXmwJqeEe24TMEGRHBV2A" confirmationNeeded="false" name="Default">
+  <contextParameter xmi:id="_0PXmwZqeEe24TMEGRHBV2A" comment="" name="lamish2_Port" prompt="lamish2_Port?" promptNeeded="false" type="id_String" value="5432"/>
+  <contextParameter xmi:id="_0PXmwpqeEe24TMEGRHBV2A" comment="" name="lamish2_Password" prompt="lamish2_Password?" promptNeeded="false" type="id_Password" value="enc:system.encryption.key.v1:+Eftuqb+QloqfTe1Y/wGbZ7zPLYqrV7EtRp9qKk/Mehy"/>
+  <contextParameter xmi:id="_0PXmw5qeEe24TMEGRHBV2A" comment="" name="lamish2_Schema" prompt="lamish2_Schema?" promptNeeded="false" type="id_String" value=""/>
+  <contextParameter xmi:id="_0PXmxJqeEe24TMEGRHBV2A" comment="" name="lamish2_Login" prompt="lamish2_Login?" promptNeeded="false" type="id_String" value="postgres"/>
+  <contextParameter xmi:id="_0PXmxZqeEe24TMEGRHBV2A" comment="" name="lamish2_Server" prompt="lamish2_Server?" promptNeeded="false" type="id_String" value="localhost"/>
+  <contextParameter xmi:id="_0PXmxpqeEe24TMEGRHBV2A" comment="" name="lamish2_Database" prompt="lamish2_Database?" promptNeeded="false" type="id_String" value="h2"/>
+  <contextParameter xmi:id="_0PXmx5qeEe24TMEGRHBV2A" comment="" name="lamish2_AdditionalParams" prompt="lamish2_AdditionalParams?" promptNeeded="false" type="id_String" value=""/>
+</talendfile:ContextType>
