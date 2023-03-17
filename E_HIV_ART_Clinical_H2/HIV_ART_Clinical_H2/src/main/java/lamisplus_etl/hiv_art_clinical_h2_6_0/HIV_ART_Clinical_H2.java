@@ -1142,6 +1142,12 @@ public static class load_art_clinicalsStruct implements routines.system.IPersist
 					return this.tb_screen;
 				}
 				
+			    public String pregnancy_status;
+
+				public String getPregnancy_status () {
+					return this.pregnancy_status;
+				}
+				
 
 
 	@Override
@@ -1210,6 +1216,7 @@ public static class load_art_clinicalsStruct implements routines.system.IPersist
 	            other.extra = this.extra;
 	            other.tb_status = this.tb_status;
 	            other.tb_screen = this.tb_screen;
+	            other.pregnancy_status = this.pregnancy_status;
 	            
 	}
 
@@ -1388,6 +1395,8 @@ public static class load_art_clinicalsStruct implements routines.system.IPersist
 					
 					this.tb_screen = readString(dis);
 					
+					this.pregnancy_status = readString(dis);
+					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
 
@@ -1565,6 +1574,10 @@ public static class load_art_clinicalsStruct implements routines.system.IPersist
 				
 						writeString(this.tb_screen,dos);
 					
+					// String
+				
+						writeString(this.pregnancy_status,dos);
+					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
         }
@@ -1614,6 +1627,7 @@ public static class load_art_clinicalsStruct implements routines.system.IPersist
 		sb.append(",extra="+extra);
 		sb.append(",tb_status="+tb_status);
 		sb.append(",tb_screen="+tb_screen);
+		sb.append(",pregnancy_status="+pregnancy_status);
 	    sb.append("]");
 
 	    return sb.toString();
@@ -1869,6 +1883,12 @@ public static class HIV_Art_clinicalStruct implements routines.system.IPersistab
 					return this.tb_screen;
 				}
 				
+			    public String pregnancy_status;
+
+				public String getPregnancy_status () {
+					return this.pregnancy_status;
+				}
+				
 
 
 
@@ -2033,6 +2053,8 @@ public static class HIV_Art_clinicalStruct implements routines.system.IPersistab
 					this.tb_status = readString(dis);
 					
 					this.tb_screen = readString(dis);
+					
+					this.pregnancy_status = readString(dis);
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -2203,6 +2225,10 @@ public static class HIV_Art_clinicalStruct implements routines.system.IPersistab
 				
 						writeString(this.tb_screen,dos);
 					
+					// String
+				
+						writeString(this.pregnancy_status,dos);
+					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
         }
@@ -2250,6 +2276,7 @@ public static class HIV_Art_clinicalStruct implements routines.system.IPersistab
 		sb.append(",clinical_note="+clinical_note);
 		sb.append(",tb_status="+tb_status);
 		sb.append(",tb_screen="+tb_screen);
+		sb.append(",pregnancy_status="+pregnancy_status);
 	    sb.append("]");
 
 	    return sb.toString();
@@ -2493,6 +2520,12 @@ public static class hiv_clinicalsStruct implements routines.system.IPersistableR
 					return this.notes;
 				}
 				
+			    public String pregnancy_status;
+
+				public String getPregnancy_status () {
+					return this.pregnancy_status;
+				}
+				
 
 
 
@@ -2655,6 +2688,8 @@ public static class hiv_clinicalsStruct implements routines.system.IPersistableR
 					this.extra = readString(dis);
 					
 					this.notes = readString(dis);
+					
+					this.pregnancy_status = readString(dis);
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -2821,6 +2856,10 @@ public static class hiv_clinicalsStruct implements routines.system.IPersistableR
 				
 						writeString(this.notes,dos);
 					
+					// String
+				
+						writeString(this.pregnancy_status,dos);
+					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
         }
@@ -2867,6 +2906,7 @@ public static class hiv_clinicalsStruct implements routines.system.IPersistableR
 		sb.append(",regimen_id="+String.valueOf(regimen_id));
 		sb.append(",extra="+extra);
 		sb.append(",notes="+notes);
+		sb.append(",pregnancy_status="+pregnancy_status);
 	    sb.append("]");
 
 	    return sb.toString();
@@ -3110,6 +3150,12 @@ public static class after_tDBInput_2Struct implements routines.system.IPersistab
 					return this.notes;
 				}
 				
+			    public String pregnancy_status;
+
+				public String getPregnancy_status () {
+					return this.pregnancy_status;
+				}
+				
 
 
 
@@ -3272,6 +3318,8 @@ public static class after_tDBInput_2Struct implements routines.system.IPersistab
 					this.extra = readString(dis);
 					
 					this.notes = readString(dis);
+					
+					this.pregnancy_status = readString(dis);
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -3438,6 +3486,10 @@ public static class after_tDBInput_2Struct implements routines.system.IPersistab
 				
 						writeString(this.notes,dos);
 					
+					// String
+				
+						writeString(this.pregnancy_status,dos);
+					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
         }
@@ -3484,6 +3536,7 @@ public static class after_tDBInput_2Struct implements routines.system.IPersistab
 		sb.append(",regimen_id="+String.valueOf(regimen_id));
 		sb.append(",extra="+extra);
 		sb.append(",notes="+notes);
+		sb.append(",pregnancy_status="+pregnancy_status);
 	    sb.append("]");
 
 	    return sb.toString();
@@ -3637,10 +3690,10 @@ String dbUser_tDBOutput_1 = null;
 
 
 int count_tDBOutput_1=0;
-	    String update_tDBOutput_1 = "UPDATE \"" + tableName_tDBOutput_1 + "\" SET \"id\" = ?,\"created_date\" = ?,\"created_by\" = ?,\"last_modified_date\" = ?,\"last_modified_by\" = ?,\"person_uuid\" = ?,\"hiv_enrollment_uuid\" = ?,\"uuid\" = ?,\"archived\" = ?,\"visit_id\" = ?,\"visit_date\" = ?,\"cd_4\" = ?,\"cd_4_percentage\" = ?,\"is_commencement\" = ?,\"oi_screened\" = ?,\"sti_ids\" = ?,\"sti_treated\" = ?,\"" + "opportunistic_infections" + "\" = " + "?::json" + ",\"adr_screened\" = ?,\"" + "adverse_drug_reactions" + "\" = " + "?::json" + ",\"adherence_level\" = ?,\"" + "adheres" + "\" = " + "?::json" + ",\"next_appointment\" = ?,\"lmp_date\" = ?,\"facility_id\" = ?,\"functional_status_id\" = ?,\"clinical_stage_id\" = ?,\"clinical_note\" = ?,\"regimen_id\" = ?,\"regimen_type_id\" = ?,\"art_status_id\" = ?,\"vital_sign_uuid\" = ?,\"who_staging_id\" = ?,\"" + "extra" + "\" = " + "?::json" + ",\"tb_status\" = ?,\"" + "tb_screen" + "\" = " + "?::json" + " WHERE \"uuid\" = ?";
+	    String update_tDBOutput_1 = "UPDATE \"" + tableName_tDBOutput_1 + "\" SET \"id\" = ?,\"created_date\" = ?,\"created_by\" = ?,\"last_modified_date\" = ?,\"last_modified_by\" = ?,\"person_uuid\" = ?,\"hiv_enrollment_uuid\" = ?,\"uuid\" = ?,\"archived\" = ?,\"visit_id\" = ?,\"visit_date\" = ?,\"cd_4\" = ?,\"cd_4_percentage\" = ?,\"is_commencement\" = ?,\"oi_screened\" = ?,\"sti_ids\" = ?,\"sti_treated\" = ?,\"" + "opportunistic_infections" + "\" = " + "?::json" + ",\"adr_screened\" = ?,\"" + "adverse_drug_reactions" + "\" = " + "?::json" + ",\"adherence_level\" = ?,\"" + "adheres" + "\" = " + "?::json" + ",\"next_appointment\" = ?,\"lmp_date\" = ?,\"facility_id\" = ?,\"functional_status_id\" = ?,\"clinical_stage_id\" = ?,\"clinical_note\" = ?,\"regimen_id\" = ?,\"regimen_type_id\" = ?,\"art_status_id\" = ?,\"vital_sign_uuid\" = ?,\"who_staging_id\" = ?,\"" + "extra" + "\" = " + "?::json" + ",\"tb_status\" = ?,\"" + "tb_screen" + "\" = " + "?::json" + ",\"pregnancy_status\" = ? WHERE \"uuid\" = ?";
 	    java.sql.PreparedStatement pstmtUpdate_tDBOutput_1 = conn_tDBOutput_1.prepareStatement(update_tDBOutput_1);
 	    resourceMap.put("pstmtUpdate_tDBOutput_1", pstmtUpdate_tDBOutput_1);
-	    String insert_tDBOutput_1 = "INSERT INTO \"" + tableName_tDBOutput_1 + "\" (\"id\",\"created_date\",\"created_by\",\"last_modified_date\",\"last_modified_by\",\"person_uuid\",\"hiv_enrollment_uuid\",\"uuid\",\"archived\",\"visit_id\",\"visit_date\",\"cd_4\",\"cd_4_percentage\",\"is_commencement\",\"oi_screened\",\"sti_ids\",\"sti_treated\",\"" + "opportunistic_infections" + "\",\"adr_screened\",\"" + "adverse_drug_reactions" + "\",\"adherence_level\",\"" + "adheres" + "\",\"next_appointment\",\"lmp_date\",\"facility_id\",\"functional_status_id\",\"clinical_stage_id\",\"clinical_note\",\"regimen_id\",\"regimen_type_id\",\"art_status_id\",\"vital_sign_uuid\",\"who_staging_id\",\"" + "extra" + "\",\"tb_status\",\"" + "tb_screen" + "\") VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?," + "?::json" + ",?," + "?::json" + ",?," + "?::json" + ",?,?,?,?,?,?,?,?,?,?,?," + "?::json" + ",?," + "?::json" + ")";
+	    String insert_tDBOutput_1 = "INSERT INTO \"" + tableName_tDBOutput_1 + "\" (\"id\",\"created_date\",\"created_by\",\"last_modified_date\",\"last_modified_by\",\"person_uuid\",\"hiv_enrollment_uuid\",\"uuid\",\"archived\",\"visit_id\",\"visit_date\",\"cd_4\",\"cd_4_percentage\",\"is_commencement\",\"oi_screened\",\"sti_ids\",\"sti_treated\",\"" + "opportunistic_infections" + "\",\"adr_screened\",\"" + "adverse_drug_reactions" + "\",\"adherence_level\",\"" + "adheres" + "\",\"next_appointment\",\"lmp_date\",\"facility_id\",\"functional_status_id\",\"clinical_stage_id\",\"clinical_note\",\"regimen_id\",\"regimen_type_id\",\"art_status_id\",\"vital_sign_uuid\",\"who_staging_id\",\"" + "extra" + "\",\"tb_status\",\"" + "tb_screen" + "\",\"pregnancy_status\") VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?," + "?::json" + ",?," + "?::json" + ",?," + "?::json" + ",?,?,?,?,?,?,?,?,?,?,?," + "?::json" + ",?," + "?::json" + ",?)";
 	    java.sql.PreparedStatement pstmtInsert_tDBOutput_1 = conn_tDBOutput_1.prepareStatement(insert_tDBOutput_1);
 	    resourceMap.put("pstmtInsert_tDBOutput_1", pstmtInsert_tDBOutput_1);
 	    
@@ -3876,7 +3929,7 @@ HIV_Art_clinicalStruct HIV_Art_clinical_tmp = new HIV_Art_clinicalStruct();
 +".visit_id,\n    a.visit_date, a.cd_4, a.cd_4_percentage, a.is_commencement,a.oi_screened, \n    a.sti_ids, a.sti_treated"
 +", a.opportunistic_infections, a.adr_screened,  \n    a.adverse_drug_reactions, a.adherence_level,  a.adheres,  a.next_ap"
 +"pointment,\n    a.lmp_date,  a.functional_status,  a.clinical_stage, a.datim_id,\n    hiv_enrollment_uuid, a.regimen_typ"
-+"e_id, a.regimen_id, a.extra, a.notes\n\nFROM etl_hiv_art_clinical_stage AS a";
++"e_id, a.regimen_id, a.extra, a.notes, a.pregnancy_status\n\nFROM etl_hiv_art_clinical_stage AS a";
 			
 
             	globalMap.put("tDBInput_2_QUERY",dbquery_tDBInput_2);
@@ -4111,6 +4164,12 @@ HIV_Art_clinicalStruct HIV_Art_clinical_tmp = new HIV_Art_clinicalStruct();
 							} else {
 	                         		
         	hiv_clinicals.notes = routines.system.JDBCUtil.getString(rs_tDBInput_2, 33, false);
+		                    }
+							if(colQtyInRs_tDBInput_2 < 34) {
+								hiv_clinicals.pregnancy_status = null;
+							} else {
+	                         		
+        	hiv_clinicals.pregnancy_status = routines.system.JDBCUtil.getString(rs_tDBInput_2, 34, false);
 		                    }
 					
 
@@ -4428,6 +4487,7 @@ HIV_Art_clinical_tmp.extra = hiv_clinicals.extra ;
 HIV_Art_clinical_tmp.clinical_note = hiv_clinicals.notes ;
 HIV_Art_clinical_tmp.tb_status = hiv_clinicals.tb_status ;
 HIV_Art_clinical_tmp.tb_screen = hiv_clinicals.tb_screen ;
+HIV_Art_clinical_tmp.pregnancy_status = hiv_clinicals.pregnancy_status ;
 HIV_Art_clinical = HIV_Art_clinical_tmp;
 // ###############################
 
@@ -4741,6 +4801,7 @@ load_art_clinicals_tmp.who_staging_id = null;
 load_art_clinicals_tmp.extra = HIV_Art_clinical.extra ;
 load_art_clinicals_tmp.tb_status = HIV_Art_clinical.tb_status ;
 load_art_clinicals_tmp.tb_screen = HIV_Art_clinical.tb_screen ;
+load_art_clinicals_tmp.pregnancy_status = HIV_Art_clinical.pregnancy_status ;
 load_art_clinicals = load_art_clinicals_tmp;
 // ###############################
 
@@ -4984,10 +5045,15 @@ pstmtUpdate_tDBOutput_1.setNull(36, java.sql.Types.VARCHAR);
 } else {pstmtUpdate_tDBOutput_1.setString(36, load_art_clinicals.tb_screen);
 }
 
+                    if(load_art_clinicals.pregnancy_status == null) {
+pstmtUpdate_tDBOutput_1.setNull(37, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(37, load_art_clinicals.pregnancy_status);
+}
+
 
                     if(load_art_clinicals.uuid == null) {
-pstmtUpdate_tDBOutput_1.setNull(37 + count_tDBOutput_1, java.sql.Types.VARCHAR);
-} else {pstmtUpdate_tDBOutput_1.setString(37 + count_tDBOutput_1, load_art_clinicals.uuid);
+pstmtUpdate_tDBOutput_1.setNull(38 + count_tDBOutput_1, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(38 + count_tDBOutput_1, load_art_clinicals.uuid);
 }
 
 
@@ -5169,6 +5235,11 @@ pstmtInsert_tDBOutput_1.setNull(35, java.sql.Types.VARCHAR);
                         if(load_art_clinicals.tb_screen == null) {
 pstmtInsert_tDBOutput_1.setNull(36, java.sql.Types.VARCHAR);
 } else {pstmtInsert_tDBOutput_1.setString(36, load_art_clinicals.tb_screen);
+}
+
+                        if(load_art_clinicals.pregnancy_status == null) {
+pstmtInsert_tDBOutput_1.setNull(37, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(37, load_art_clinicals.pregnancy_status);
 }
 
 					
@@ -13418,6 +13489,12 @@ public static class clinic_stage_recordStruct implements routines.system.IPersis
 					return this.tb_status;
 				}
 				
+			    public String pregnancy_status;
+
+				public String getPregnancy_status () {
+					return this.pregnancy_status;
+				}
+				
 
 
 	@Override
@@ -13482,6 +13559,7 @@ public static class clinic_stage_recordStruct implements routines.system.IPersis
 	            other.extra = this.extra;
 	            other.notes = this.notes;
 	            other.tb_status = this.tb_status;
+	            other.pregnancy_status = this.pregnancy_status;
 	            
 	}
 
@@ -13652,6 +13730,8 @@ public static class clinic_stage_recordStruct implements routines.system.IPersis
 					
 						this.tb_status = readInteger(dis);
 					
+					this.pregnancy_status = readString(dis);
+					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
 
@@ -13813,6 +13893,10 @@ public static class clinic_stage_recordStruct implements routines.system.IPersis
 				
 						writeInteger(this.tb_status,dos);
 					
+					// String
+				
+						writeString(this.pregnancy_status,dos);
+					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
         }
@@ -13858,6 +13942,7 @@ public static class clinic_stage_recordStruct implements routines.system.IPersis
 		sb.append(",extra="+extra);
 		sb.append(",notes="+notes);
 		sb.append(",tb_status="+String.valueOf(tb_status));
+		sb.append(",pregnancy_status="+pregnancy_status);
 	    sb.append("]");
 
 	    return sb.toString();
@@ -14089,6 +14174,12 @@ public static class hiv_art_clinic_dataStruct implements routines.system.IPersis
 					return this.tb_status;
 				}
 				
+			    public String pregnancy_status;
+
+				public String getPregnancy_status () {
+					return this.pregnancy_status;
+				}
+				
 
 
 
@@ -14246,6 +14337,8 @@ public static class hiv_art_clinic_dataStruct implements routines.system.IPersis
 					
 					this.tb_status = readString(dis);
 					
+					this.pregnancy_status = readString(dis);
+					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
 
@@ -14399,6 +14492,10 @@ public static class hiv_art_clinic_dataStruct implements routines.system.IPersis
 				
 						writeString(this.tb_status,dos);
 					
+					// String
+				
+						writeString(this.pregnancy_status,dos);
+					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
         }
@@ -14442,6 +14539,7 @@ public static class hiv_art_clinic_dataStruct implements routines.system.IPersis
 		sb.append(",extra="+extra);
 		sb.append(",notes="+notes);
 		sb.append(",tb_status="+tb_status);
+		sb.append(",pregnancy_status="+pregnancy_status);
 	    sb.append("]");
 
 	    return sb.toString();
@@ -14661,6 +14759,12 @@ public static class clinicStruct implements routines.system.IPersistableRow<clin
 					return this.extra;
 				}
 				
+			    public String pregnancy_status;
+
+				public String getPregnancy_status () {
+					return this.pregnancy_status;
+				}
+				
 
 
 
@@ -14795,6 +14899,8 @@ public static class clinicStruct implements routines.system.IPersistableRow<clin
 					this.notes = readString(dis);
 					
 					this.extra = readString(dis);
+					
+					this.pregnancy_status = readString(dis);
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -14945,6 +15051,10 @@ public static class clinicStruct implements routines.system.IPersistableRow<clin
 				
 						writeString(this.extra,dos);
 					
+					// String
+				
+						writeString(this.pregnancy_status,dos);
+					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
         }
@@ -14987,6 +15097,7 @@ public static class clinicStruct implements routines.system.IPersistableRow<clin
 		sb.append(",datim_id="+datim_id);
 		sb.append(",notes="+notes);
 		sb.append(",extra="+extra);
+		sb.append(",pregnancy_status="+pregnancy_status);
 	    sb.append("]");
 
 	    return sb.toString();
@@ -15206,6 +15317,12 @@ public static class after_tDBInput_8Struct implements routines.system.IPersistab
 					return this.extra;
 				}
 				
+			    public String pregnancy_status;
+
+				public String getPregnancy_status () {
+					return this.pregnancy_status;
+				}
+				
 
 
 
@@ -15340,6 +15457,8 @@ public static class after_tDBInput_8Struct implements routines.system.IPersistab
 					this.notes = readString(dis);
 					
 					this.extra = readString(dis);
+					
+					this.pregnancy_status = readString(dis);
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -15490,6 +15609,10 @@ public static class after_tDBInput_8Struct implements routines.system.IPersistab
 				
 						writeString(this.extra,dos);
 					
+					// String
+				
+						writeString(this.pregnancy_status,dos);
+					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
         }
@@ -15532,6 +15655,7 @@ public static class after_tDBInput_8Struct implements routines.system.IPersistab
 		sb.append(",datim_id="+datim_id);
 		sb.append(",notes="+notes);
 		sb.append(",extra="+extra);
+		sb.append(",pregnancy_status="+pregnancy_status);
 	    sb.append("]");
 
 	    return sb.toString();
@@ -15709,15 +15833,15 @@ int count_tDBOutput_3=0;
                                 }
                                 if(!whetherExist_tDBOutput_3) {
                                     try (java.sql.Statement stmtCreate_tDBOutput_3 = conn_tDBOutput_3.createStatement()) {
-                                        stmtCreate_tDBOutput_3.execute("CREATE TABLE \"" + tableName_tDBOutput_3 + "\"(\"created_date\" TIMESTAMP(29)   not null ,\"created_by\" VARCHAR(100)   not null ,\"last_modified_date\" TIMESTAMP(29)   not null ,\"last_modified_by\" VARCHAR(100)   not null ,\"uuid\" VARCHAR(100)   not null ,\"archived\" INT4  not null ,\"visit_date\" DATE ,\"cd_4\" FLOAT8 ,\"cd_4_percentage\" FLOAT8 ,\"is_commencement\" BOOL ,\"oi_screened\" VARCHAR(2000)  ,\"sti_ids\" VARCHAR(2000)  ,\"sti_treated\" VARCHAR(2000)  ,\"" + "opportunistic_infections" + "\" VARCHAR(2000),\"adr_screened\" VARCHAR(2000)  ,\"" + "adverse_drug_reactions" + "\" VARCHAR(2000),\"adherence_level\" VARCHAR(2000)  ,\"" + "adheres" + "\" VARCHAR(2000),\"next_appointment\" DATE ,\"lmp_date\" DATE ,\"functional_status\" VARCHAR(500)  ,\"clinical_stage\" VARCHAR(500)  ,\"datim_id\" VARCHAR(100)   not null ,\"hiv_enrollment_uuid\" VARCHAR(255)   not null ,\"visit_id\" VARCHAR(255)   not null ,\"person_uuid\" VARCHAR(255)   not null ,\"id\" INT4  not null ,\"regimen_id\" BIGSERIAL ,\"regimen_type_id\" INT4 ,\"" + "extra" + "\" VARCHAR(2000),\"notes\" VARCHAR(2000)  ,\"tb_status\" INT4 ,primary key(\"id\"))");
+                                        stmtCreate_tDBOutput_3.execute("CREATE TABLE \"" + tableName_tDBOutput_3 + "\"(\"created_date\" TIMESTAMP(29)   not null ,\"created_by\" VARCHAR(100)   not null ,\"last_modified_date\" TIMESTAMP(29)   not null ,\"last_modified_by\" VARCHAR(100)   not null ,\"uuid\" VARCHAR(100)  ,\"archived\" INT4 ,\"visit_date\" DATE ,\"cd_4\" FLOAT8 ,\"cd_4_percentage\" FLOAT8 ,\"is_commencement\" BOOL ,\"oi_screened\" VARCHAR(2000)  ,\"sti_ids\" VARCHAR(2000)  ,\"sti_treated\" VARCHAR(2000)  ,\"" + "opportunistic_infections" + "\" VARCHAR(2000),\"adr_screened\" VARCHAR(2000)  ,\"" + "adverse_drug_reactions" + "\" VARCHAR(2000),\"adherence_level\" VARCHAR(2000)  ,\"" + "adheres" + "\" VARCHAR(2000),\"next_appointment\" DATE ,\"lmp_date\" DATE ,\"functional_status\" VARCHAR(500)  ,\"clinical_stage\" VARCHAR(500)  ,\"datim_id\" VARCHAR(100)   not null ,\"hiv_enrollment_uuid\" VARCHAR(255)   not null ,\"visit_id\" VARCHAR(255)   not null ,\"person_uuid\" VARCHAR(255)   not null ,\"id\" INT4  not null ,\"regimen_id\" BIGSERIAL ,\"regimen_type_id\" INT4 ,\"" + "extra" + "\" VARCHAR(2000),\"notes\" VARCHAR(2000)  ,\"tb_status\" INT4 ,\"pregnancy_status\" VARCHAR ,primary key(\"id\"))");
                                     }
                                 }
 	    java.sql.PreparedStatement pstmt_tDBOutput_3 = conn_tDBOutput_3.prepareStatement("SELECT COUNT(1) FROM \"" + tableName_tDBOutput_3 + "\" WHERE \"id\" = ?");
 	    resourceMap.put("pstmt_tDBOutput_3", pstmt_tDBOutput_3);
-	    String insert_tDBOutput_3 = "INSERT INTO \"" + tableName_tDBOutput_3 + "\" (\"created_date\",\"created_by\",\"last_modified_date\",\"last_modified_by\",\"uuid\",\"archived\",\"visit_date\",\"cd_4\",\"cd_4_percentage\",\"is_commencement\",\"oi_screened\",\"sti_ids\",\"sti_treated\",\"" + "opportunistic_infections" + "\",\"adr_screened\",\"" + "adverse_drug_reactions" + "\",\"adherence_level\",\"" + "adheres" + "\",\"next_appointment\",\"lmp_date\",\"functional_status\",\"clinical_stage\",\"datim_id\",\"hiv_enrollment_uuid\",\"visit_id\",\"person_uuid\",\"id\",\"regimen_id\",\"regimen_type_id\",\"" + "extra" + "\",\"notes\",\"tb_status\") VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?," + "?::jsonb" + ",?," + "?::jsonb" + ",?," + "?::jsonb" + ",?,?,?,?,?,?,?,?,?,?,?," + "?::jsonb" + ",?,?)";
+	    String insert_tDBOutput_3 = "INSERT INTO \"" + tableName_tDBOutput_3 + "\" (\"created_date\",\"created_by\",\"last_modified_date\",\"last_modified_by\",\"uuid\",\"archived\",\"visit_date\",\"cd_4\",\"cd_4_percentage\",\"is_commencement\",\"oi_screened\",\"sti_ids\",\"sti_treated\",\"" + "opportunistic_infections" + "\",\"adr_screened\",\"" + "adverse_drug_reactions" + "\",\"adherence_level\",\"" + "adheres" + "\",\"next_appointment\",\"lmp_date\",\"functional_status\",\"clinical_stage\",\"datim_id\",\"hiv_enrollment_uuid\",\"visit_id\",\"person_uuid\",\"id\",\"regimen_id\",\"regimen_type_id\",\"" + "extra" + "\",\"notes\",\"tb_status\",\"pregnancy_status\") VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?," + "?::jsonb" + ",?," + "?::jsonb" + ",?," + "?::jsonb" + ",?,?,?,?,?,?,?,?,?,?,?," + "?::jsonb" + ",?,?,?)";
 	    java.sql.PreparedStatement pstmtInsert_tDBOutput_3 = conn_tDBOutput_3.prepareStatement(insert_tDBOutput_3);
 	    resourceMap.put("pstmtInsert_tDBOutput_3", pstmtInsert_tDBOutput_3);
-	    String update_tDBOutput_3 = "UPDATE \"" + tableName_tDBOutput_3 + "\" SET \"created_date\" = ?,\"created_by\" = ?,\"last_modified_date\" = ?,\"last_modified_by\" = ?,\"uuid\" = ?,\"archived\" = ?,\"visit_date\" = ?,\"cd_4\" = ?,\"cd_4_percentage\" = ?,\"is_commencement\" = ?,\"oi_screened\" = ?,\"sti_ids\" = ?,\"sti_treated\" = ?,\"" + "opportunistic_infections" + "\" = " + "?::jsonb" + ",\"adr_screened\" = ?,\"" + "adverse_drug_reactions" + "\" = " + "?::jsonb" + ",\"adherence_level\" = ?,\"" + "adheres" + "\" = " + "?::jsonb" + ",\"next_appointment\" = ?,\"lmp_date\" = ?,\"functional_status\" = ?,\"clinical_stage\" = ?,\"datim_id\" = ?,\"hiv_enrollment_uuid\" = ?,\"visit_id\" = ?,\"person_uuid\" = ?,\"regimen_id\" = ?,\"regimen_type_id\" = ?,\"" + "extra" + "\" = " + "?::jsonb" + ",\"notes\" = ?,\"tb_status\" = ? WHERE \"id\" = ?";
+	    String update_tDBOutput_3 = "UPDATE \"" + tableName_tDBOutput_3 + "\" SET \"created_date\" = ?,\"created_by\" = ?,\"last_modified_date\" = ?,\"last_modified_by\" = ?,\"uuid\" = ?,\"archived\" = ?,\"visit_date\" = ?,\"cd_4\" = ?,\"cd_4_percentage\" = ?,\"is_commencement\" = ?,\"oi_screened\" = ?,\"sti_ids\" = ?,\"sti_treated\" = ?,\"" + "opportunistic_infections" + "\" = " + "?::jsonb" + ",\"adr_screened\" = ?,\"" + "adverse_drug_reactions" + "\" = " + "?::jsonb" + ",\"adherence_level\" = ?,\"" + "adheres" + "\" = " + "?::jsonb" + ",\"next_appointment\" = ?,\"lmp_date\" = ?,\"functional_status\" = ?,\"clinical_stage\" = ?,\"datim_id\" = ?,\"hiv_enrollment_uuid\" = ?,\"visit_id\" = ?,\"person_uuid\" = ?,\"regimen_id\" = ?,\"regimen_type_id\" = ?,\"" + "extra" + "\" = " + "?::jsonb" + ",\"notes\" = ?,\"tb_status\" = ?,\"pregnancy_status\" = ? WHERE \"id\" = ?";
 	    java.sql.PreparedStatement pstmtUpdate_tDBOutput_3 = conn_tDBOutput_3.prepareStatement(update_tDBOutput_3);
 	    resourceMap.put("pstmtUpdate_tDBOutput_3", pstmtUpdate_tDBOutput_3);
 	    
@@ -15957,11 +16081,12 @@ hiv_art_clinic_dataStruct hiv_art_clinic_data_tmp = new hiv_art_clinic_dataStruc
 +"\n(CASE WHEN a.description IS NOT NULL \nTHEN REPLACE(CONCAT('[\"',SUBSTR(a.description, 4),'\"]')::VARCHAR, '/', 'or') "
 +"\n ELSE NULL END) AS adverse_drug_reactions, \n			   \n(CASE WHEN ad.description IS NOT NULL \n THEN REPLACE(CONCAT('[\""
 +"',SUBSTR(ad.description, 4),'\"]')::VARCHAR, '/', 'or')\n ELSE NULL END) AS adheres,\n			   \nf.datim_id as datim_id, c."
-+"notes, NULL AS extra\nFROM clinic c\n\nJOIN patient p ON p.patient_id = c.patient_id \nINNER JOIN facility f ON f.facili"
-+"ty_id=p.facility_id\nLEFT JOIN regimen r ON r.description = c.regimen\nLEFT JOIN oi o ON o.oi_id= (CASE WHEN c.oi_ids ~ "
-+"'^\\d+(\\.\\d+)?$' THEN c.oi_ids ELSE null END)::BIGINT\nLEFT JOIN adr a ON a.adr_id=(CASE WHEN c.adr_ids ~ '^\\d+(\\."
++"notes, NULL AS extra,\n(CASE WHEN c.pregnant=1 THEN 'PREGANACY_STATUS_PREGNANT'\nELSE 'PREGANACY_STATUS_NOT_PREGNANT' EN"
++"D) AS pregnancy_status\nFROM clinic c\n\nJOIN patient p ON p.patient_id = c.patient_id \nINNER JOIN facility f ON f.faci"
++"lity_id=p.facility_id\nLEFT JOIN regimen r ON r.description = c.regimen\nLEFT JOIN oi o ON o.oi_id= (CASE WHEN c.oi_ids "
++"~ '^\\d+(\\.\\d+)?$' THEN c.oi_ids ELSE null END)::BIGINT\nLEFT JOIN adr a ON a.adr_id=(CASE WHEN c.adr_ids ~ '^\\d+(\\."
 +"\\d+)?$' THEN c.adr_ids ELSE null END)::BIGINT\nLEFT JOIN adhere ad ON ad.adhere_id=(CASE WHEN c.adhere_ids ~ '^\\d+(\\."
-+"\\d+)?$' THEN c.adhere_ids ELSE null END)::BIGINT";
++"\\d+)?$' THEN c.adhere_ids ELSE null END)::BIGINT\n";
 			
 
             	globalMap.put("tDBInput_8_QUERY",dbquery_tDBInput_8);
@@ -16163,6 +16288,12 @@ hiv_art_clinic_dataStruct hiv_art_clinic_data_tmp = new hiv_art_clinic_dataStruc
 							} else {
 	                         		
         	clinic.extra = routines.system.JDBCUtil.getString(rs_tDBInput_8, 29, false);
+		                    }
+							if(colQtyInRs_tDBInput_8 < 30) {
+								clinic.pregnancy_status = null;
+							} else {
+	                         		
+        	clinic.pregnancy_status = routines.system.JDBCUtil.getString(rs_tDBInput_8, 30, false);
 		                    }
 					
 
@@ -16476,6 +16607,7 @@ hiv_art_clinic_data_tmp.regimen_type_id = Compostion.regimen_type_id ;
 hiv_art_clinic_data_tmp.extra = clinic.extra ;
 hiv_art_clinic_data_tmp.notes = clinic.notes ;
 hiv_art_clinic_data_tmp.tb_status = clinic.tb_status ;
+hiv_art_clinic_data_tmp.pregnancy_status = clinic.pregnancy_status ;
 hiv_art_clinic_data = hiv_art_clinic_data_tmp;
 // ###############################
 
@@ -16787,6 +16919,7 @@ clinic_stage_record_tmp.regimen_type_id = hiv_art_clinic_data.regimen_type_id ;
 clinic_stage_record_tmp.extra = hiv_art_clinic_data.extra ;
 clinic_stage_record_tmp.notes = hiv_art_clinic_data.notes ;
 clinic_stage_record_tmp.tb_status = row1.id;
+clinic_stage_record_tmp.pregnancy_status = hiv_art_clinic_data.pregnancy_status ;
 clinic_stage_record = clinic_stage_record_tmp;
 // ###############################
 
@@ -16892,7 +17025,10 @@ pstmtUpdate_tDBOutput_3.setNull(5, java.sql.Types.VARCHAR);
 } else {pstmtUpdate_tDBOutput_3.setString(5, clinic_stage_record.uuid);
 }
 
-                        pstmtUpdate_tDBOutput_3.setInt(6, clinic_stage_record.archived);
+                        if(clinic_stage_record.archived == null) {
+pstmtUpdate_tDBOutput_3.setNull(6, java.sql.Types.INTEGER);
+} else {pstmtUpdate_tDBOutput_3.setInt(6, clinic_stage_record.archived);
+}
 
                         if(clinic_stage_record.visit_date != null) {
 pstmtUpdate_tDBOutput_3.setTimestamp(7, new java.sql.Timestamp(clinic_stage_record.visit_date.getTime()));
@@ -17022,7 +17158,12 @@ pstmtUpdate_tDBOutput_3.setNull(31, java.sql.Types.INTEGER);
 } else {pstmtUpdate_tDBOutput_3.setInt(31, clinic_stage_record.tb_status);
 }
 
-                        pstmtUpdate_tDBOutput_3.setInt(32 + count_tDBOutput_3, clinic_stage_record.id);
+                        if(clinic_stage_record.pregnancy_status == null) {
+pstmtUpdate_tDBOutput_3.setNull(32, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_3.setString(32, clinic_stage_record.pregnancy_status);
+}
+
+                        pstmtUpdate_tDBOutput_3.setInt(33 + count_tDBOutput_3, clinic_stage_record.id);
 
                 try {
 					
@@ -17063,7 +17204,10 @@ pstmtInsert_tDBOutput_3.setNull(5, java.sql.Types.VARCHAR);
 } else {pstmtInsert_tDBOutput_3.setString(5, clinic_stage_record.uuid);
 }
 
-                        pstmtInsert_tDBOutput_3.setInt(6, clinic_stage_record.archived);
+                        if(clinic_stage_record.archived == null) {
+pstmtInsert_tDBOutput_3.setNull(6, java.sql.Types.INTEGER);
+} else {pstmtInsert_tDBOutput_3.setInt(6, clinic_stage_record.archived);
+}
 
                         if(clinic_stage_record.visit_date != null) {
 pstmtInsert_tDBOutput_3.setTimestamp(7, new java.sql.Timestamp(clinic_stage_record.visit_date.getTime()));
@@ -17193,6 +17337,11 @@ pstmtInsert_tDBOutput_3.setNull(31, java.sql.Types.VARCHAR);
                         if(clinic_stage_record.tb_status == null) {
 pstmtInsert_tDBOutput_3.setNull(32, java.sql.Types.INTEGER);
 } else {pstmtInsert_tDBOutput_3.setInt(32, clinic_stage_record.tb_status);
+}
+
+                        if(clinic_stage_record.pregnancy_status == null) {
+pstmtInsert_tDBOutput_3.setNull(33, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_3.setString(33, clinic_stage_record.pregnancy_status);
 }
 
                 try {
@@ -21585,6 +21734,6 @@ if (execStat) {
     ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- *     539006 characters generated by Talend Open Studio for Big Data 
- *     on the March 11, 2023 5:54:42 AM WAT
+ *     543888 characters generated by Talend Open Studio for Big Data 
+ *     on the March 17, 2023 8:15:29 PM WAT
  ************************************************************************************************/
