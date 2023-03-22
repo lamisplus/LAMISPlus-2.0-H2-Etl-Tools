@@ -16007,184 +16007,16 @@ public static class row7Struct implements routines.system.IPersistableComparable
 					return this.pharmacy_id;
 				}
 				
-			    public long patient_id;
-
-				public long getPatient_id () {
-					return this.patient_id;
-				}
-				
-			    public long facility_id;
-
-				public long getFacility_id () {
-					return this.facility_id;
-				}
-				
-			    public java.util.Date date_visit;
-
-				public java.util.Date getDate_visit () {
-					return this.date_visit;
-				}
-				
 			    public Integer duration;
 
 				public Integer getDuration () {
 					return this.duration;
 				}
 				
-			    public Float morning;
-
-				public Float getMorning () {
-					return this.morning;
-				}
-				
-			    public Float afternoon;
-
-				public Float getAfternoon () {
-					return this.afternoon;
-				}
-				
-			    public Float evening;
-
-				public Float getEvening () {
-					return this.evening;
-				}
-				
-			    public String adr_screened;
-
-				public String getAdr_screened () {
-					return this.adr_screened;
-				}
-				
-			    public String adr_ids;
-
-				public String getAdr_ids () {
-					return this.adr_ids;
-				}
-				
-			    public Integer prescrip_error;
-
-				public Integer getPrescrip_error () {
-					return this.prescrip_error;
-				}
-				
-			    public Integer adherence;
-
-				public Integer getAdherence () {
-					return this.adherence;
-				}
-				
 			    public java.util.Date next_appointment;
 
 				public java.util.Date getNext_appointment () {
 					return this.next_appointment;
-				}
-				
-			    public long regimentype_id;
-
-				public long getRegimentype_id () {
-					return this.regimentype_id;
-				}
-				
-			    public long regimen_id;
-
-				public long getRegimen_id () {
-					return this.regimen_id;
-				}
-				
-			    public long regimendrug_id;
-
-				public long getRegimendrug_id () {
-					return this.regimendrug_id;
-				}
-				
-			    public java.util.Date time_stamp;
-
-				public java.util.Date getTime_stamp () {
-					return this.time_stamp;
-				}
-				
-			    public Integer uploaded;
-
-				public Integer getUploaded () {
-					return this.uploaded;
-				}
-				
-			    public java.util.Date time_uploaded;
-
-				public java.util.Date getTime_uploaded () {
-					return this.time_uploaded;
-				}
-				
-			    public Long user_id;
-
-				public Long getUser_id () {
-					return this.user_id;
-				}
-				
-			    public String id_uuid;
-
-				public String getId_uuid () {
-					return this.id_uuid;
-				}
-				
-			    public String dmoc_type;
-
-				public String getDmoc_type () {
-					return this.dmoc_type;
-				}
-				
-			    public String uuid;
-
-				public String getUuid () {
-					return this.uuid;
-				}
-				
-			    public Float body_weight;
-
-				public Float getBody_weight () {
-					return this.body_weight;
-				}
-				
-			    public String local_id;
-
-				public String getLocal_id () {
-					return this.local_id;
-				}
-				
-			    public String tpt_started;
-
-				public String getTpt_started () {
-					return this.tpt_started;
-				}
-				
-			    public java.util.Date tpt_start_date;
-
-				public java.util.Date getTpt_start_date () {
-					return this.tpt_start_date;
-				}
-				
-			    public java.util.Date inh_cpmpletion_date;
-
-				public java.util.Date getInh_cpmpletion_date () {
-					return this.inh_cpmpletion_date;
-				}
-				
-			    public String tpt_outcome;
-
-				public String getTpt_outcome () {
-					return this.tpt_outcome;
-				}
-				
-			    public java.util.Date tpt_completion_date;
-
-				public java.util.Date getTpt_completion_date () {
-					return this.tpt_completion_date;
-				}
-				
-			    public java.util.Date tb_start_date;
-
-				public java.util.Date getTb_start_date () {
-					return this.tb_start_date;
 				}
 				
 
@@ -16220,36 +16052,8 @@ public static class row7Struct implements routines.system.IPersistableComparable
 	public void copyDataTo(row7Struct other) {
 
 		other.pharmacy_id = this.pharmacy_id;
-	            other.patient_id = this.patient_id;
-	            other.facility_id = this.facility_id;
-	            other.date_visit = this.date_visit;
 	            other.duration = this.duration;
-	            other.morning = this.morning;
-	            other.afternoon = this.afternoon;
-	            other.evening = this.evening;
-	            other.adr_screened = this.adr_screened;
-	            other.adr_ids = this.adr_ids;
-	            other.prescrip_error = this.prescrip_error;
-	            other.adherence = this.adherence;
 	            other.next_appointment = this.next_appointment;
-	            other.regimentype_id = this.regimentype_id;
-	            other.regimen_id = this.regimen_id;
-	            other.regimendrug_id = this.regimendrug_id;
-	            other.time_stamp = this.time_stamp;
-	            other.uploaded = this.uploaded;
-	            other.time_uploaded = this.time_uploaded;
-	            other.user_id = this.user_id;
-	            other.id_uuid = this.id_uuid;
-	            other.dmoc_type = this.dmoc_type;
-	            other.uuid = this.uuid;
-	            other.body_weight = this.body_weight;
-	            other.local_id = this.local_id;
-	            other.tpt_started = this.tpt_started;
-	            other.tpt_start_date = this.tpt_start_date;
-	            other.inh_cpmpletion_date = this.inh_cpmpletion_date;
-	            other.tpt_outcome = this.tpt_outcome;
-	            other.tpt_completion_date = this.tpt_completion_date;
-	            other.tb_start_date = this.tb_start_date;
 	            
 	}
 
@@ -16261,27 +16065,6 @@ public static class row7Struct implements routines.system.IPersistableComparable
 
 
 
-
-	private java.util.Date readDate(DataInputStream dis, ObjectInputStream ois) throws IOException{
-		java.util.Date dateReturn = null;
-		int length = 0;
-        length = dis.readByte();
-		if (length == -1) {
-			dateReturn = null;
-		} else {
-	    	dateReturn = new Date(dis.readLong());
-		}
-		return dateReturn;
-	}
-
-	private void writeDate(java.util.Date date1, DataOutputStream dos, ObjectOutputStream oos) throws IOException{
-		if(date1 == null) {
-            dos.writeByte(-1);
-		} else {
-			dos.writeByte(0);
-	    	dos.writeLong(date1.getTime());
-    	}
-	}
 	private Integer readInteger(DataInputStream dis, ObjectInputStream ois) throws IOException{
 		Integer intReturn;
         int length = 0;
@@ -16303,27 +16086,24 @@ public static class row7Struct implements routines.system.IPersistableComparable
     	}
 	}
 
-	private String readString(DataInputStream dis, ObjectInputStream ois) throws IOException{
-		String strReturn = null;
+	private java.util.Date readDate(DataInputStream dis, ObjectInputStream ois) throws IOException{
+		java.util.Date dateReturn = null;
 		int length = 0;
-        length = dis.readInt();
+        length = dis.readByte();
 		if (length == -1) {
-			strReturn = null;
+			dateReturn = null;
 		} else {
-			byte[] byteArray = new byte[length];
-			dis.read(byteArray);
-			strReturn = new String(byteArray, utf8Charset);
+	    	dateReturn = new Date(dis.readLong());
 		}
-		return strReturn;
+		return dateReturn;
 	}
 
-	private void writeString(String str, DataOutputStream dos, ObjectOutputStream oos) throws IOException{
-		if(str == null) {
-            dos.writeInt(-1);
+	private void writeDate(java.util.Date date1, DataOutputStream dos, ObjectOutputStream oos) throws IOException{
+		if(date1 == null) {
+            dos.writeByte(-1);
 		} else {
-            byte[] byteArray = str.getBytes(utf8Charset);
-	    	dos.writeInt(byteArray.length);
-			dos.write(byteArray);
+			dos.writeByte(0);
+	    	dos.writeLong(date1.getTime());
     	}
 	}
 
@@ -16376,90 +16156,9 @@ public static class row7Struct implements routines.system.IPersistableComparable
 
 			int length = 0;
 		
-			            this.patient_id = dis.readLong();
-					
-			            this.facility_id = dis.readLong();
-					
-						this.date_visit = readDate(dis,ois);
-					
 						this.duration = readInteger(dis,ois);
 					
-			            length = dis.readByte();
-           				if (length == -1) {
-           	    			this.morning = null;
-           				} else {
-           			    	this.morning = dis.readFloat();
-           				}
-					
-			            length = dis.readByte();
-           				if (length == -1) {
-           	    			this.afternoon = null;
-           				} else {
-           			    	this.afternoon = dis.readFloat();
-           				}
-					
-			            length = dis.readByte();
-           				if (length == -1) {
-           	    			this.evening = null;
-           				} else {
-           			    	this.evening = dis.readFloat();
-           				}
-					
-						this.adr_screened = readString(dis,ois);
-					
-						this.adr_ids = readString(dis,ois);
-					
-						this.prescrip_error = readInteger(dis,ois);
-					
-						this.adherence = readInteger(dis,ois);
-					
 						this.next_appointment = readDate(dis,ois);
-					
-			            this.regimentype_id = dis.readLong();
-					
-			            this.regimen_id = dis.readLong();
-					
-			            this.regimendrug_id = dis.readLong();
-					
-						this.time_stamp = readDate(dis,ois);
-					
-						this.uploaded = readInteger(dis,ois);
-					
-						this.time_uploaded = readDate(dis,ois);
-					
-			            length = dis.readByte();
-           				if (length == -1) {
-           	    			this.user_id = null;
-           				} else {
-           			    	this.user_id = dis.readLong();
-           				}
-					
-						this.id_uuid = readString(dis,ois);
-					
-						this.dmoc_type = readString(dis,ois);
-					
-						this.uuid = readString(dis,ois);
-					
-			            length = dis.readByte();
-           				if (length == -1) {
-           	    			this.body_weight = null;
-           				} else {
-           			    	this.body_weight = dis.readFloat();
-           				}
-					
-						this.local_id = readString(dis,ois);
-					
-						this.tpt_started = readString(dis,ois);
-					
-						this.tpt_start_date = readDate(dis,ois);
-					
-						this.inh_cpmpletion_date = readDate(dis,ois);
-					
-						this.tpt_outcome = readString(dis,ois);
-					
-						this.tpt_completion_date = readDate(dis,ois);
-					
-						this.tb_start_date = readDate(dis,ois);
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -16479,90 +16178,9 @@ public static class row7Struct implements routines.system.IPersistableComparable
         try {
 
 		
-		            	dos.writeLong(this.patient_id);
-					
-		            	dos.writeLong(this.facility_id);
-					
-						writeDate(this.date_visit, dos, oos);
-					
 					writeInteger(this.duration, dos, oos);
 					
-						if(this.morning == null) {
-			                dos.writeByte(-1);
-						} else {
-               				dos.writeByte(0);
-           			    	dos.writeFloat(this.morning);
-		            	}
-					
-						if(this.afternoon == null) {
-			                dos.writeByte(-1);
-						} else {
-               				dos.writeByte(0);
-           			    	dos.writeFloat(this.afternoon);
-		            	}
-					
-						if(this.evening == null) {
-			                dos.writeByte(-1);
-						} else {
-               				dos.writeByte(0);
-           			    	dos.writeFloat(this.evening);
-		            	}
-					
-						writeString(this.adr_screened, dos, oos);
-					
-						writeString(this.adr_ids, dos, oos);
-					
-					writeInteger(this.prescrip_error, dos, oos);
-					
-					writeInteger(this.adherence, dos, oos);
-					
 						writeDate(this.next_appointment, dos, oos);
-					
-		            	dos.writeLong(this.regimentype_id);
-					
-		            	dos.writeLong(this.regimen_id);
-					
-		            	dos.writeLong(this.regimendrug_id);
-					
-						writeDate(this.time_stamp, dos, oos);
-					
-					writeInteger(this.uploaded, dos, oos);
-					
-						writeDate(this.time_uploaded, dos, oos);
-					
-						if(this.user_id == null) {
-			                dos.writeByte(-1);
-						} else {
-               				dos.writeByte(0);
-           			    	dos.writeLong(this.user_id);
-		            	}
-					
-						writeString(this.id_uuid, dos, oos);
-					
-						writeString(this.dmoc_type, dos, oos);
-					
-						writeString(this.uuid, dos, oos);
-					
-						if(this.body_weight == null) {
-			                dos.writeByte(-1);
-						} else {
-               				dos.writeByte(0);
-           			    	dos.writeFloat(this.body_weight);
-		            	}
-					
-						writeString(this.local_id, dos, oos);
-					
-						writeString(this.tpt_started, dos, oos);
-					
-						writeDate(this.tpt_start_date, dos, oos);
-					
-						writeDate(this.inh_cpmpletion_date, dos, oos);
-					
-						writeString(this.tpt_outcome, dos, oos);
-					
-						writeDate(this.tpt_completion_date, dos, oos);
-					
-						writeDate(this.tb_start_date, dos, oos);
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -16577,36 +16195,8 @@ public static class row7Struct implements routines.system.IPersistableComparable
 		sb.append(super.toString());
 		sb.append("[");
 		sb.append("pharmacy_id="+String.valueOf(pharmacy_id));
-		sb.append(",patient_id="+String.valueOf(patient_id));
-		sb.append(",facility_id="+String.valueOf(facility_id));
-		sb.append(",date_visit="+String.valueOf(date_visit));
 		sb.append(",duration="+String.valueOf(duration));
-		sb.append(",morning="+String.valueOf(morning));
-		sb.append(",afternoon="+String.valueOf(afternoon));
-		sb.append(",evening="+String.valueOf(evening));
-		sb.append(",adr_screened="+adr_screened);
-		sb.append(",adr_ids="+adr_ids);
-		sb.append(",prescrip_error="+String.valueOf(prescrip_error));
-		sb.append(",adherence="+String.valueOf(adherence));
 		sb.append(",next_appointment="+String.valueOf(next_appointment));
-		sb.append(",regimentype_id="+String.valueOf(regimentype_id));
-		sb.append(",regimen_id="+String.valueOf(regimen_id));
-		sb.append(",regimendrug_id="+String.valueOf(regimendrug_id));
-		sb.append(",time_stamp="+String.valueOf(time_stamp));
-		sb.append(",uploaded="+String.valueOf(uploaded));
-		sb.append(",time_uploaded="+String.valueOf(time_uploaded));
-		sb.append(",user_id="+String.valueOf(user_id));
-		sb.append(",id_uuid="+id_uuid);
-		sb.append(",dmoc_type="+dmoc_type);
-		sb.append(",uuid="+uuid);
-		sb.append(",body_weight="+String.valueOf(body_weight));
-		sb.append(",local_id="+local_id);
-		sb.append(",tpt_started="+tpt_started);
-		sb.append(",tpt_start_date="+String.valueOf(tpt_start_date));
-		sb.append(",inh_cpmpletion_date="+String.valueOf(inh_cpmpletion_date));
-		sb.append(",tpt_outcome="+tpt_outcome);
-		sb.append(",tpt_completion_date="+String.valueOf(tpt_completion_date));
-		sb.append(",tb_start_date="+String.valueOf(tb_start_date));
 	    sb.append("]");
 
 	    return sb.toString();
@@ -16754,14 +16344,14 @@ public void tDBInput_7Process(final java.util.Map<String, Object> globalMap) thr
 		    java.sql.Connection conn_tDBInput_7 = null;
 				String driverClass_tDBInput_7 = "org.postgresql.Driver";
 			    java.lang.Class jdbcclazz_tDBInput_7 = java.lang.Class.forName(driverClass_tDBInput_7);
-				String dbUser_tDBInput_7 = context.LAMIS3_H2_Login;
+				String dbUser_tDBInput_7 = context.LAMIS3_Login;
 				
 				
-	final String decryptedPassword_tDBInput_7 = context.LAMIS3_H2_Password; 
+	final String decryptedPassword_tDBInput_7 = context.LAMIS3_Password; 
 				
 				String dbPwd_tDBInput_7 = decryptedPassword_tDBInput_7;
 				
-				String url_tDBInput_7 = "jdbc:postgresql://" + context.LAMIS3_H2_Server + ":" + context.LAMIS3_H2_Port + "/" + context.LAMIS3_H2_Database + "?" + context.LAMIS3_H2_AdditionalParams;
+				String url_tDBInput_7 = "jdbc:postgresql://" + context.LAMIS3_Server + ":" + context.LAMIS3_Port + "/" + context.LAMIS3_Database + "?" + context.LAMIS3_AdditionalParams;
 				
 				conn_tDBInput_7 = java.sql.DriverManager.getConnection(url_tDBInput_7,dbUser_tDBInput_7,dbPwd_tDBInput_7);
 		        
@@ -16770,7 +16360,7 @@ public void tDBInput_7Process(final java.util.Map<String, Object> globalMap) thr
 		    
 			java.sql.Statement stmt_tDBInput_7 = conn_tDBInput_7.createStatement();
 
-		    String dbquery_tDBInput_7 = "select * from pharmacy";
+		    String dbquery_tDBInput_7 = "select  pharmacy_id, duration,  to_char(next_appointment ,'YYYY-MM-DD')::DATE AS next_appointment from pharmacy";
 			
 
             	globalMap.put("tDBInput_7_QUERY",dbquery_tDBInput_7);
@@ -16797,226 +16387,19 @@ public void tDBInput_7Process(final java.util.Map<String, Object> globalMap) thr
             }
 		                    }
 							if(colQtyInRs_tDBInput_7 < 2) {
-								row7.patient_id = 0;
-							} else {
-		                          
-            row7.patient_id = rs_tDBInput_7.getLong(2);
-            if(rs_tDBInput_7.wasNull()){
-                    throw new RuntimeException("Null value in non-Nullable column");
-            }
-		                    }
-							if(colQtyInRs_tDBInput_7 < 3) {
-								row7.facility_id = 0;
-							} else {
-		                          
-            row7.facility_id = rs_tDBInput_7.getLong(3);
-            if(rs_tDBInput_7.wasNull()){
-                    throw new RuntimeException("Null value in non-Nullable column");
-            }
-		                    }
-							if(colQtyInRs_tDBInput_7 < 4) {
-								row7.date_visit = null;
-							} else {
-										
-			row7.date_visit = routines.system.JDBCUtil.getDate(rs_tDBInput_7, 4);
-		                    }
-							if(colQtyInRs_tDBInput_7 < 5) {
 								row7.duration = null;
 							} else {
 		                          
-            row7.duration = rs_tDBInput_7.getInt(5);
+            row7.duration = rs_tDBInput_7.getInt(2);
             if(rs_tDBInput_7.wasNull()){
                     row7.duration = null;
             }
 		                    }
-							if(colQtyInRs_tDBInput_7 < 6) {
-								row7.morning = null;
-							} else {
-		                          
-            row7.morning = rs_tDBInput_7.getFloat(6);
-            if(rs_tDBInput_7.wasNull()){
-                    row7.morning = null;
-            }
-		                    }
-							if(colQtyInRs_tDBInput_7 < 7) {
-								row7.afternoon = null;
-							} else {
-		                          
-            row7.afternoon = rs_tDBInput_7.getFloat(7);
-            if(rs_tDBInput_7.wasNull()){
-                    row7.afternoon = null;
-            }
-		                    }
-							if(colQtyInRs_tDBInput_7 < 8) {
-								row7.evening = null;
-							} else {
-		                          
-            row7.evening = rs_tDBInput_7.getFloat(8);
-            if(rs_tDBInput_7.wasNull()){
-                    row7.evening = null;
-            }
-		                    }
-							if(colQtyInRs_tDBInput_7 < 9) {
-								row7.adr_screened = null;
-							} else {
-	                         		
-        	row7.adr_screened = routines.system.JDBCUtil.getString(rs_tDBInput_7, 9, false);
-		                    }
-							if(colQtyInRs_tDBInput_7 < 10) {
-								row7.adr_ids = null;
-							} else {
-	                         		
-        	row7.adr_ids = routines.system.JDBCUtil.getString(rs_tDBInput_7, 10, false);
-		                    }
-							if(colQtyInRs_tDBInput_7 < 11) {
-								row7.prescrip_error = null;
-							} else {
-		                          
-            row7.prescrip_error = rs_tDBInput_7.getInt(11);
-            if(rs_tDBInput_7.wasNull()){
-                    row7.prescrip_error = null;
-            }
-		                    }
-							if(colQtyInRs_tDBInput_7 < 12) {
-								row7.adherence = null;
-							} else {
-		                          
-            row7.adherence = rs_tDBInput_7.getInt(12);
-            if(rs_tDBInput_7.wasNull()){
-                    row7.adherence = null;
-            }
-		                    }
-							if(colQtyInRs_tDBInput_7 < 13) {
+							if(colQtyInRs_tDBInput_7 < 3) {
 								row7.next_appointment = null;
 							} else {
 										
-			row7.next_appointment = routines.system.JDBCUtil.getDate(rs_tDBInput_7, 13);
-		                    }
-							if(colQtyInRs_tDBInput_7 < 14) {
-								row7.regimentype_id = 0;
-							} else {
-		                          
-            row7.regimentype_id = rs_tDBInput_7.getLong(14);
-            if(rs_tDBInput_7.wasNull()){
-                    throw new RuntimeException("Null value in non-Nullable column");
-            }
-		                    }
-							if(colQtyInRs_tDBInput_7 < 15) {
-								row7.regimen_id = 0;
-							} else {
-		                          
-            row7.regimen_id = rs_tDBInput_7.getLong(15);
-            if(rs_tDBInput_7.wasNull()){
-                    throw new RuntimeException("Null value in non-Nullable column");
-            }
-		                    }
-							if(colQtyInRs_tDBInput_7 < 16) {
-								row7.regimendrug_id = 0;
-							} else {
-		                          
-            row7.regimendrug_id = rs_tDBInput_7.getLong(16);
-            if(rs_tDBInput_7.wasNull()){
-                    throw new RuntimeException("Null value in non-Nullable column");
-            }
-		                    }
-							if(colQtyInRs_tDBInput_7 < 17) {
-								row7.time_stamp = null;
-							} else {
-										
-			row7.time_stamp = routines.system.JDBCUtil.getDate(rs_tDBInput_7, 17);
-		                    }
-							if(colQtyInRs_tDBInput_7 < 18) {
-								row7.uploaded = null;
-							} else {
-		                          
-            row7.uploaded = rs_tDBInput_7.getInt(18);
-            if(rs_tDBInput_7.wasNull()){
-                    row7.uploaded = null;
-            }
-		                    }
-							if(colQtyInRs_tDBInput_7 < 19) {
-								row7.time_uploaded = null;
-							} else {
-										
-			row7.time_uploaded = routines.system.JDBCUtil.getDate(rs_tDBInput_7, 19);
-		                    }
-							if(colQtyInRs_tDBInput_7 < 20) {
-								row7.user_id = null;
-							} else {
-		                          
-            row7.user_id = rs_tDBInput_7.getLong(20);
-            if(rs_tDBInput_7.wasNull()){
-                    row7.user_id = null;
-            }
-		                    }
-							if(colQtyInRs_tDBInput_7 < 21) {
-								row7.id_uuid = null;
-							} else {
-	                         		
-        	row7.id_uuid = routines.system.JDBCUtil.getString(rs_tDBInput_7, 21, false);
-		                    }
-							if(colQtyInRs_tDBInput_7 < 22) {
-								row7.dmoc_type = null;
-							} else {
-	                         		
-        	row7.dmoc_type = routines.system.JDBCUtil.getString(rs_tDBInput_7, 22, false);
-		                    }
-							if(colQtyInRs_tDBInput_7 < 23) {
-								row7.uuid = null;
-							} else {
-	                         		
-        	row7.uuid = routines.system.JDBCUtil.getString(rs_tDBInput_7, 23, false);
-		                    }
-							if(colQtyInRs_tDBInput_7 < 24) {
-								row7.body_weight = null;
-							} else {
-		                          
-            row7.body_weight = rs_tDBInput_7.getFloat(24);
-            if(rs_tDBInput_7.wasNull()){
-                    row7.body_weight = null;
-            }
-		                    }
-							if(colQtyInRs_tDBInput_7 < 25) {
-								row7.local_id = null;
-							} else {
-	                         		
-        	row7.local_id = routines.system.JDBCUtil.getString(rs_tDBInput_7, 25, false);
-		                    }
-							if(colQtyInRs_tDBInput_7 < 26) {
-								row7.tpt_started = null;
-							} else {
-	                         		
-        	row7.tpt_started = routines.system.JDBCUtil.getString(rs_tDBInput_7, 26, false);
-		                    }
-							if(colQtyInRs_tDBInput_7 < 27) {
-								row7.tpt_start_date = null;
-							} else {
-										
-			row7.tpt_start_date = routines.system.JDBCUtil.getDate(rs_tDBInput_7, 27);
-		                    }
-							if(colQtyInRs_tDBInput_7 < 28) {
-								row7.inh_cpmpletion_date = null;
-							} else {
-										
-			row7.inh_cpmpletion_date = routines.system.JDBCUtil.getDate(rs_tDBInput_7, 28);
-		                    }
-							if(colQtyInRs_tDBInput_7 < 29) {
-								row7.tpt_outcome = null;
-							} else {
-	                         		
-        	row7.tpt_outcome = routines.system.JDBCUtil.getString(rs_tDBInput_7, 29, false);
-		                    }
-							if(colQtyInRs_tDBInput_7 < 30) {
-								row7.tpt_completion_date = null;
-							} else {
-										
-			row7.tpt_completion_date = routines.system.JDBCUtil.getDate(rs_tDBInput_7, 30);
-		                    }
-							if(colQtyInRs_tDBInput_7 < 31) {
-								row7.tb_start_date = null;
-							} else {
-										
-			row7.tb_start_date = routines.system.JDBCUtil.getDate(rs_tDBInput_7, 31);
+			row7.next_appointment = routines.system.JDBCUtil.getDate(rs_tDBInput_7, 3);
 		                    }
 					
 
@@ -17096,65 +16479,9 @@ public void tDBInput_7Process(final java.util.Map<String, Object> globalMap) thr
 				
 				row7_HashRow.pharmacy_id = row7.pharmacy_id;
 				
-				row7_HashRow.patient_id = row7.patient_id;
-				
-				row7_HashRow.facility_id = row7.facility_id;
-				
-				row7_HashRow.date_visit = row7.date_visit;
-				
 				row7_HashRow.duration = row7.duration;
 				
-				row7_HashRow.morning = row7.morning;
-				
-				row7_HashRow.afternoon = row7.afternoon;
-				
-				row7_HashRow.evening = row7.evening;
-				
-				row7_HashRow.adr_screened = row7.adr_screened;
-				
-				row7_HashRow.adr_ids = row7.adr_ids;
-				
-				row7_HashRow.prescrip_error = row7.prescrip_error;
-				
-				row7_HashRow.adherence = row7.adherence;
-				
 				row7_HashRow.next_appointment = row7.next_appointment;
-				
-				row7_HashRow.regimentype_id = row7.regimentype_id;
-				
-				row7_HashRow.regimen_id = row7.regimen_id;
-				
-				row7_HashRow.regimendrug_id = row7.regimendrug_id;
-				
-				row7_HashRow.time_stamp = row7.time_stamp;
-				
-				row7_HashRow.uploaded = row7.uploaded;
-				
-				row7_HashRow.time_uploaded = row7.time_uploaded;
-				
-				row7_HashRow.user_id = row7.user_id;
-				
-				row7_HashRow.id_uuid = row7.id_uuid;
-				
-				row7_HashRow.dmoc_type = row7.dmoc_type;
-				
-				row7_HashRow.uuid = row7.uuid;
-				
-				row7_HashRow.body_weight = row7.body_weight;
-				
-				row7_HashRow.local_id = row7.local_id;
-				
-				row7_HashRow.tpt_started = row7.tpt_started;
-				
-				row7_HashRow.tpt_start_date = row7.tpt_start_date;
-				
-				row7_HashRow.inh_cpmpletion_date = row7.inh_cpmpletion_date;
-				
-				row7_HashRow.tpt_outcome = row7.tpt_outcome;
-				
-				row7_HashRow.tpt_completion_date = row7.tpt_completion_date;
-				
-				row7_HashRow.tb_start_date = row7.tb_start_date;
 				
 			tHash_Lookup_row7.put(row7_HashRow);
 			
@@ -18693,6 +18020,6 @@ if (execStat) {
     ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- *     461804 characters generated by Talend Open Studio for Big Data 
- *     on the March 22, 2023 12:21:51 PM WAT
+ *     441144 characters generated by Talend Open Studio for Big Data 
+ *     on the March 22, 2023 4:48:49 PM WAT
  ************************************************************************************************/
