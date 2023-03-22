@@ -68,7 +68,7 @@ import java.util.Comparator;
 /**
  * Job: HIV_ART_Pharmacy_H2 Purpose: F_HIV_ART_Pharmacy<br>
  * Description: F_HIV_ART_Pharmacy <br>
- * @author user@talend.com
+ * @author ilozuechukwuemeka@yahoo.com
  * @version 7.3.1.20200219_1130
  * @status 
  */
@@ -2209,14 +2209,14 @@ Pharmacy_All_ExtractStruct Pharmacy_All_Extract_tmp = new Pharmacy_All_ExtractSt
 		    java.sql.Connection conn_tDBInput_2 = null;
 				String driverClass_tDBInput_2 = "org.postgresql.Driver";
 			    java.lang.Class jdbcclazz_tDBInput_2 = java.lang.Class.forName(driverClass_tDBInput_2);
-				String dbUser_tDBInput_2 = context.LAMIS3_H2_Login;
+				String dbUser_tDBInput_2 = context.LAMIS3_Login;
 				
 				
-	final String decryptedPassword_tDBInput_2 = context.LAMIS3_H2_Password; 
+	final String decryptedPassword_tDBInput_2 = context.LAMIS3_Password; 
 				
 				String dbPwd_tDBInput_2 = decryptedPassword_tDBInput_2;
 				
-				String url_tDBInput_2 = "jdbc:postgresql://" + context.LAMIS3_H2_Server + ":" + context.LAMIS3_H2_Port + "/" + context.LAMIS3_H2_Database + "?" + context.LAMIS3_H2_AdditionalParams;
+				String url_tDBInput_2 = "jdbc:postgresql://" + context.LAMIS3_Server + ":" + context.LAMIS3_Port + "/" + context.LAMIS3_Database + "?" + context.LAMIS3_AdditionalParams;
 				
 				conn_tDBInput_2 = java.sql.DriverManager.getConnection(url_tDBInput_2,dbUser_tDBInput_2,dbPwd_tDBInput_2);
 		        
@@ -12081,7 +12081,7 @@ int totalMigrated = globalMap.get("tDBOutput_3_NB_LINE_UPDATED") != null ? (Inte
 
 System.out.println("Total hiv_art_pharmacy already migrated "+totalMigrated);
 
-System.out.println("Total new records migrated - "+globalMap.get("tDBOutput_3_NB_LINE_INSERTED"));
+System.out.println("Total new hiv_art_pharmacy records migrated - "+globalMap.get("tDBOutput_3_NB_LINE_INSERTED"));
 if(globalMap.get("tDBOutput_3_ERROR_MESSAGE") != null){
 System.out.println("Migration Error - "+globalMap.get("tDBOutput_3_ERROR_MESSAGE"));
 }
@@ -12287,7 +12287,7 @@ public void tJava_5Process(final java.util.Map<String, Object> globalMap) throws
 		
 
 
-System.out.println("Total Pharmacy records fetched from LAMIS3 Pharmacy - "+globalMap.get("tDBInput_2_NB_LINE"));
+System.out.println("Total Unique Pharmacy records fetched from LAMIS3 Pharmacy - "+globalMap.get("tDBInput_2_NB_LINE"));
 System.out.println("");
  
 
@@ -13053,14 +13053,14 @@ public void tDBInput_1Process(final java.util.Map<String, Object> globalMap) thr
 		    java.sql.Connection conn_tDBInput_1 = null;
 				String driverClass_tDBInput_1 = "org.postgresql.Driver";
 			    java.lang.Class jdbcclazz_tDBInput_1 = java.lang.Class.forName(driverClass_tDBInput_1);
-				String dbUser_tDBInput_1 = context.LAMIS3_H2_Login;
+				String dbUser_tDBInput_1 = context.LAMIS3_Login;
 				
 				
-	final String decryptedPassword_tDBInput_1 = context.LAMIS3_H2_Password; 
+	final String decryptedPassword_tDBInput_1 = context.LAMIS3_Password; 
 				
 				String dbPwd_tDBInput_1 = decryptedPassword_tDBInput_1;
 				
-				String url_tDBInput_1 = "jdbc:postgresql://" + context.LAMIS3_H2_Server + ":" + context.LAMIS3_H2_Port + "/" + context.LAMIS3_H2_Database + "?" + context.LAMIS3_H2_AdditionalParams;
+				String url_tDBInput_1 = "jdbc:postgresql://" + context.LAMIS3_Server + ":" + context.LAMIS3_Port + "/" + context.LAMIS3_Database + "?" + context.LAMIS3_AdditionalParams;
 				
 				conn_tDBInput_1 = java.sql.DriverManager.getConnection(url_tDBInput_1,dbUser_tDBInput_1,dbPwd_tDBInput_1);
 		        
@@ -13954,14 +13954,14 @@ public void tDBInput_3Process(final java.util.Map<String, Object> globalMap) thr
 		    java.sql.Connection conn_tDBInput_3 = null;
 				String driverClass_tDBInput_3 = "org.postgresql.Driver";
 			    java.lang.Class jdbcclazz_tDBInput_3 = java.lang.Class.forName(driverClass_tDBInput_3);
-				String dbUser_tDBInput_3 = context.LAMIS3_H2_Login;
+				String dbUser_tDBInput_3 = context.LAMIS3_Login;
 				
 				
-	final String decryptedPassword_tDBInput_3 = context.LAMIS3_H2_Password; 
+	final String decryptedPassword_tDBInput_3 = context.LAMIS3_Password; 
 				
 				String dbPwd_tDBInput_3 = decryptedPassword_tDBInput_3;
 				
-				String url_tDBInput_3 = "jdbc:postgresql://" + context.LAMIS3_H2_Server + ":" + context.LAMIS3_H2_Port + "/" + context.LAMIS3_H2_Database + "?" + context.LAMIS3_H2_AdditionalParams;
+				String url_tDBInput_3 = "jdbc:postgresql://" + context.LAMIS3_Server + ":" + context.LAMIS3_Port + "/" + context.LAMIS3_Database + "?" + context.LAMIS3_AdditionalParams;
 				
 				conn_tDBInput_3 = java.sql.DriverManager.getConnection(url_tDBInput_3,dbUser_tDBInput_3,dbPwd_tDBInput_3);
 		        
@@ -14786,14 +14786,14 @@ public void tDBInput_4Process(final java.util.Map<String, Object> globalMap) thr
 		    java.sql.Connection conn_tDBInput_4 = null;
 				String driverClass_tDBInput_4 = "org.postgresql.Driver";
 			    java.lang.Class jdbcclazz_tDBInput_4 = java.lang.Class.forName(driverClass_tDBInput_4);
-				String dbUser_tDBInput_4 = context.LAMIS3_H2_Login;
+				String dbUser_tDBInput_4 = context.LAMIS3_Login;
 				
 				
-	final String decryptedPassword_tDBInput_4 = context.LAMIS3_H2_Password; 
+	final String decryptedPassword_tDBInput_4 = context.LAMIS3_Password; 
 				
 				String dbPwd_tDBInput_4 = decryptedPassword_tDBInput_4;
 				
-				String url_tDBInput_4 = "jdbc:postgresql://" + context.LAMIS3_H2_Server + ":" + context.LAMIS3_H2_Port + "/" + context.LAMIS3_H2_Database + "?" + context.LAMIS3_H2_AdditionalParams;
+				String url_tDBInput_4 = "jdbc:postgresql://" + context.LAMIS3_Server + ":" + context.LAMIS3_Port + "/" + context.LAMIS3_Database + "?" + context.LAMIS3_AdditionalParams;
 				
 				conn_tDBInput_4 = java.sql.DriverManager.getConnection(url_tDBInput_4,dbUser_tDBInput_4,dbPwd_tDBInput_4);
 		        
@@ -18193,7 +18193,7 @@ end_Hash.put("tAdvancedHash_row11", System.currentTimeMillis());
     public int portTraces = 4334;
     public String clientHost;
     public String defaultClientHost = "localhost";
-    public String contextStr = "Lamisplus";
+    public String contextStr = "Default";
     public boolean isDefaultContext = true;
     public String pid = "0";
     public String rootPid = null;
@@ -18693,6 +18693,6 @@ if (execStat) {
     ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- *     461842 characters generated by Talend Open Studio for Big Data 
- *     on the March 17, 2023 8:43:36 PM WAT
+ *     461804 characters generated by Talend Open Studio for Big Data 
+ *     on the March 22, 2023 12:21:51 PM WAT
  ************************************************************************************************/

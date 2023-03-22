@@ -65,7 +65,7 @@ import java.util.Comparator;
 /**
  * Job: HIV_Enrollment_H2 Purpose: Patient_HIV_Enrollment<br>
  * Description: Patient_HIV_Enrollment <br>
- * @author user@talend.com
+ * @author ilozuechukwuemeka@yahoo.com
  * @version 7.3.1.20200219_1130
  * @status 
  */
@@ -3160,6 +3160,12 @@ public static class row2Struct implements routines.system.IPersistableRow<row2St
     static byte[] commonByteArray_LAMISPLUS_ETL_HIV_Enrollment_H2 = new byte[0];
 
 	
+			    public String id_uuid;
+
+				public String getId_uuid () {
+					return this.id_uuid;
+				}
+				
 			    public long id;
 
 				public long getId () {
@@ -3262,9 +3268,9 @@ public static class row2Struct implements routines.system.IPersistableRow<row2St
 					return this.send_message;
 				}
 				
-			    public boolean archived;
+			    public Boolean archived;
 
-				public boolean getArchived () {
+				public Boolean getArchived () {
 					return this.archived;
 				}
 				
@@ -3366,6 +3372,8 @@ public static class row2Struct implements routines.system.IPersistableRow<row2St
 
         		int length = 0;
 		
+					this.id_uuid = readString(dis);
+					
 			        this.id = dis.readLong();
 					
 					this.uuid = readString(dis);
@@ -3415,7 +3423,12 @@ public static class row2Struct implements routines.system.IPersistableRow<row2St
            			    	this.send_message = dis.readBoolean();
            				}
 					
-			        this.archived = dis.readBoolean();
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.archived = null;
+           				} else {
+           			    	this.archived = dis.readBoolean();
+           				}
 					
 					this.last_modified = readDate(dis);
 					
@@ -3447,6 +3460,10 @@ public static class row2Struct implements routines.system.IPersistableRow<row2St
         try {
 
 		
+					// String
+				
+						writeString(this.id_uuid,dos);
+					
 					// long
 				
 		            	dos.writeLong(this.id);
@@ -3530,9 +3547,14 @@ public static class row2Struct implements routines.system.IPersistableRow<row2St
            			    	dos.writeBoolean(this.send_message);
 		            	}
 					
-					// boolean
+					// Boolean
 				
-		            	dos.writeBoolean(this.archived);
+						if(this.archived == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeBoolean(this.archived);
+		            	}
 					
 					// java.util.Date
 				
@@ -3571,7 +3593,8 @@ public static class row2Struct implements routines.system.IPersistableRow<row2St
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString());
 		sb.append("[");
-		sb.append("id="+String.valueOf(id));
+		sb.append("id_uuid="+id_uuid);
+		sb.append(",id="+String.valueOf(id));
 		sb.append(",uuid="+uuid);
 		sb.append(",person_uuid="+person_uuid);
 		sb.append(",unique_id="+unique_id);
@@ -3640,6 +3663,12 @@ public static class after_tDBInput_16Struct implements routines.system.IPersista
     static byte[] commonByteArray_LAMISPLUS_ETL_HIV_Enrollment_H2 = new byte[0];
 
 	
+			    public String id_uuid;
+
+				public String getId_uuid () {
+					return this.id_uuid;
+				}
+				
 			    public long id;
 
 				public long getId () {
@@ -3742,9 +3771,9 @@ public static class after_tDBInput_16Struct implements routines.system.IPersista
 					return this.send_message;
 				}
 				
-			    public boolean archived;
+			    public Boolean archived;
 
-				public boolean getArchived () {
+				public Boolean getArchived () {
 					return this.archived;
 				}
 				
@@ -3846,6 +3875,8 @@ public static class after_tDBInput_16Struct implements routines.system.IPersista
 
         		int length = 0;
 		
+					this.id_uuid = readString(dis);
+					
 			        this.id = dis.readLong();
 					
 					this.uuid = readString(dis);
@@ -3895,7 +3926,12 @@ public static class after_tDBInput_16Struct implements routines.system.IPersista
            			    	this.send_message = dis.readBoolean();
            				}
 					
-			        this.archived = dis.readBoolean();
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.archived = null;
+           				} else {
+           			    	this.archived = dis.readBoolean();
+           				}
 					
 					this.last_modified = readDate(dis);
 					
@@ -3927,6 +3963,10 @@ public static class after_tDBInput_16Struct implements routines.system.IPersista
         try {
 
 		
+					// String
+				
+						writeString(this.id_uuid,dos);
+					
 					// long
 				
 		            	dos.writeLong(this.id);
@@ -4010,9 +4050,14 @@ public static class after_tDBInput_16Struct implements routines.system.IPersista
            			    	dos.writeBoolean(this.send_message);
 		            	}
 					
-					// boolean
+					// Boolean
 				
-		            	dos.writeBoolean(this.archived);
+						if(this.archived == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeBoolean(this.archived);
+		            	}
 					
 					// java.util.Date
 				
@@ -4051,7 +4096,8 @@ public static class after_tDBInput_16Struct implements routines.system.IPersista
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString());
 		sb.append("[");
-		sb.append("id="+String.valueOf(id));
+		sb.append("id_uuid="+id_uuid);
+		sb.append(",id="+String.valueOf(id));
 		sb.append(",uuid="+uuid);
 		sb.append(",person_uuid="+person_uuid);
 		sb.append(",unique_id="+unique_id);
@@ -4307,14 +4353,14 @@ copyOfCreate_HIV_JSONStringStruct copyOfCreate_HIV_JSONString_tmp = new copyOfCr
 		    java.sql.Connection conn_tDBInput_16 = null;
 				String driverClass_tDBInput_16 = "org.postgresql.Driver";
 			    java.lang.Class jdbcclazz_tDBInput_16 = java.lang.Class.forName(driverClass_tDBInput_16);
-				String dbUser_tDBInput_16 = context.LAMIS3_H2_Login;
+				String dbUser_tDBInput_16 = context.LAMIS3_Login;
 				
 				
-	final String decryptedPassword_tDBInput_16 = context.LAMIS3_H2_Password; 
+	final String decryptedPassword_tDBInput_16 = context.LAMIS3_Password; 
 				
 				String dbPwd_tDBInput_16 = decryptedPassword_tDBInput_16;
 				
-				String url_tDBInput_16 = "jdbc:postgresql://" + context.LAMIS3_H2_Server + ":" + context.LAMIS3_H2_Port + "/" + context.LAMIS3_H2_Database + "?" + context.LAMIS3_H2_AdditionalParams;
+				String url_tDBInput_16 = "jdbc:postgresql://" + context.LAMIS3_Server + ":" + context.LAMIS3_Port + "/" + context.LAMIS3_Database + "?" + context.LAMIS3_AdditionalParams;
 				
 				conn_tDBInput_16 = java.sql.DriverManager.getConnection(url_tDBInput_16,dbUser_tDBInput_16,dbPwd_tDBInput_16);
 		        
@@ -4323,14 +4369,15 @@ copyOfCreate_HIV_JSONStringStruct copyOfCreate_HIV_JSONString_tmp = new copyOfCr
 		    
 			java.sql.Statement stmt_tDBInput_16 = conn_tDBInput_16.createStatement();
 
-		    String dbquery_tDBInput_16 = "SELECT DISTINCT ps.patient_id AS id,CONCAT('he-',ps.id_uuid, 'he') AS uuid, ps.id_uuid AS person_uuid,ps.unique_id,ps.e"
-+"ntry_point,ps.target_group,\n	ps.date_confirmed_hiv,ps.date_enrolled_pmtct,ps.date_confirmed_hiv as time_hiv_diagnosis,"
-+"\n	ps.date_registration,ps.date_started,ps.source_referral,\n	(CASE WHEN ps.pregnant != NULL AND ps.pregnant=1  THEN TRUE"
-+" ELSE FALSE END) AS pregnant,\n	(CASE WHEN ps.breastfeeding != NULL AND ps.breastfeeding=1 THEN TRUE ELSE FALSE END) AS "
-+"breastfeeding,\n	ps.status_registration AS status_at_registration,ps.enrollment_setting,\n	(CASE WHEN ps.send_message !="
-+" NULL AND ps.send_message=1 THEN TRUE ELSE FALSE END) AS send_message,\n	FALSE AS archived,ps.time_stamp AS last_modifie"
-+"d,\n	ps.facility_id,fc.name AS facility_name,lg.name AS lga_name,fc.datim_id AS datim_id,\n	ps.tb_status\nFROM public.pa"
-+"tient ps\nINNER JOIN facility fc\n  ON ps.facility_id=fc.facility_id\nINNER JOIN lga lg\n  ON fc.lga_id=lg.lga_id";
+		    String dbquery_tDBInput_16 = "SELECT DISTINCT ON (ps.id_uuid) id_uuid, ps.patient_id AS id,CONCAT('he-',ps.id_uuid, 'he') AS uuid, ps.id_uuid AS pers"
++"on_uuid,ps.unique_id,ps.entry_point,ps.target_group,\n	ps.date_confirmed_hiv,ps.date_enrolled_pmtct,ps.date_confirmed_hi"
++"v as time_hiv_diagnosis,\n	ps.date_registration,ps.date_started,ps.source_referral,\n	(CASE WHEN ps.pregnant != NULL AND"
++" ps.pregnant=1  THEN TRUE ELSE FALSE END) AS pregnant,\n	(CASE WHEN ps.breastfeeding != NULL AND ps.breastfeeding=1 THEN"
++" TRUE ELSE FALSE END) AS breastfeeding,\n	ps.status_registration AS status_at_registration,ps.enrollment_setting,\n	(CAS"
++"E WHEN ps.send_message != NULL AND ps.send_message=1 THEN TRUE ELSE FALSE END) AS send_message,\n	FALSE AS archived,ps.t"
++"ime_stamp AS last_modified,\n	ps.facility_id,fc.name AS facility_name,lg.name AS lga_name,fc.datim_id AS datim_id,\n	ps."
++"tb_status\nFROM public.patient ps\nINNER JOIN facility fc\n  ON ps.facility_id=fc.facility_id\nINNER JOIN lga lg\n  ON f"
++"c.lga_id=lg.lga_id\nORDER BY ps.id_uuid ASC";
 			
 
             	globalMap.put("tDBInput_16_QUERY",dbquery_tDBInput_16);
@@ -4348,166 +4395,172 @@ copyOfCreate_HIV_JSONStringStruct copyOfCreate_HIV_JSONString_tmp = new copyOfCr
 		        nb_line_tDBInput_16++;
 		        
 							if(colQtyInRs_tDBInput_16 < 1) {
+								row2.id_uuid = null;
+							} else {
+	                         		
+        	row2.id_uuid = routines.system.JDBCUtil.getString(rs_tDBInput_16, 1, false);
+		                    }
+							if(colQtyInRs_tDBInput_16 < 2) {
 								row2.id = 0;
 							} else {
 		                          
-            row2.id = rs_tDBInput_16.getLong(1);
+            row2.id = rs_tDBInput_16.getLong(2);
             if(rs_tDBInput_16.wasNull()){
                     throw new RuntimeException("Null value in non-Nullable column");
             }
 		                    }
-							if(colQtyInRs_tDBInput_16 < 2) {
+							if(colQtyInRs_tDBInput_16 < 3) {
 								row2.uuid = null;
 							} else {
 	                         		
-        	row2.uuid = routines.system.JDBCUtil.getString(rs_tDBInput_16, 2, false);
+        	row2.uuid = routines.system.JDBCUtil.getString(rs_tDBInput_16, 3, false);
 		                    }
-							if(colQtyInRs_tDBInput_16 < 3) {
+							if(colQtyInRs_tDBInput_16 < 4) {
 								row2.person_uuid = null;
 							} else {
 	                         		
-        	row2.person_uuid = routines.system.JDBCUtil.getString(rs_tDBInput_16, 3, false);
+        	row2.person_uuid = routines.system.JDBCUtil.getString(rs_tDBInput_16, 4, false);
 		                    }
-							if(colQtyInRs_tDBInput_16 < 4) {
+							if(colQtyInRs_tDBInput_16 < 5) {
 								row2.unique_id = null;
 							} else {
 	                         		
-        	row2.unique_id = routines.system.JDBCUtil.getString(rs_tDBInput_16, 4, false);
+        	row2.unique_id = routines.system.JDBCUtil.getString(rs_tDBInput_16, 5, false);
 		                    }
-							if(colQtyInRs_tDBInput_16 < 5) {
+							if(colQtyInRs_tDBInput_16 < 6) {
 								row2.entry_point = null;
 							} else {
 	                         		
-        	row2.entry_point = routines.system.JDBCUtil.getString(rs_tDBInput_16, 5, false);
+        	row2.entry_point = routines.system.JDBCUtil.getString(rs_tDBInput_16, 6, false);
 		                    }
-							if(colQtyInRs_tDBInput_16 < 6) {
+							if(colQtyInRs_tDBInput_16 < 7) {
 								row2.target_group = null;
 							} else {
 	                         		
-        	row2.target_group = routines.system.JDBCUtil.getString(rs_tDBInput_16, 6, false);
+        	row2.target_group = routines.system.JDBCUtil.getString(rs_tDBInput_16, 7, false);
 		                    }
-							if(colQtyInRs_tDBInput_16 < 7) {
+							if(colQtyInRs_tDBInput_16 < 8) {
 								row2.date_confirmed_hiv = null;
 							} else {
 										
-			row2.date_confirmed_hiv = routines.system.JDBCUtil.getDate(rs_tDBInput_16, 7);
+			row2.date_confirmed_hiv = routines.system.JDBCUtil.getDate(rs_tDBInput_16, 8);
 		                    }
-							if(colQtyInRs_tDBInput_16 < 8) {
+							if(colQtyInRs_tDBInput_16 < 9) {
 								row2.date_enrolled_pmtct = null;
 							} else {
 										
-			row2.date_enrolled_pmtct = routines.system.JDBCUtil.getDate(rs_tDBInput_16, 8);
+			row2.date_enrolled_pmtct = routines.system.JDBCUtil.getDate(rs_tDBInput_16, 9);
 		                    }
-							if(colQtyInRs_tDBInput_16 < 9) {
+							if(colQtyInRs_tDBInput_16 < 10) {
 								row2.time_hiv_diagnosis = null;
 							} else {
 										
-			row2.time_hiv_diagnosis = routines.system.JDBCUtil.getDate(rs_tDBInput_16, 9);
+			row2.time_hiv_diagnosis = routines.system.JDBCUtil.getDate(rs_tDBInput_16, 10);
 		                    }
-							if(colQtyInRs_tDBInput_16 < 10) {
+							if(colQtyInRs_tDBInput_16 < 11) {
 								row2.date_registration = null;
 							} else {
 										
-			row2.date_registration = routines.system.JDBCUtil.getDate(rs_tDBInput_16, 10);
+			row2.date_registration = routines.system.JDBCUtil.getDate(rs_tDBInput_16, 11);
 		                    }
-							if(colQtyInRs_tDBInput_16 < 11) {
+							if(colQtyInRs_tDBInput_16 < 12) {
 								row2.date_started = null;
 							} else {
 										
-			row2.date_started = routines.system.JDBCUtil.getDate(rs_tDBInput_16, 11);
+			row2.date_started = routines.system.JDBCUtil.getDate(rs_tDBInput_16, 12);
 		                    }
-							if(colQtyInRs_tDBInput_16 < 12) {
+							if(colQtyInRs_tDBInput_16 < 13) {
 								row2.source_referral = null;
 							} else {
 	                         		
-        	row2.source_referral = routines.system.JDBCUtil.getString(rs_tDBInput_16, 12, false);
+        	row2.source_referral = routines.system.JDBCUtil.getString(rs_tDBInput_16, 13, false);
 		                    }
-							if(colQtyInRs_tDBInput_16 < 13) {
+							if(colQtyInRs_tDBInput_16 < 14) {
 								row2.pregnant = null;
 							} else {
 	                         		
-            row2.pregnant = rs_tDBInput_16.getBoolean(13);
+            row2.pregnant = rs_tDBInput_16.getBoolean(14);
             if(rs_tDBInput_16.wasNull()){
                     row2.pregnant = null;
             }
 		                    }
-							if(colQtyInRs_tDBInput_16 < 14) {
+							if(colQtyInRs_tDBInput_16 < 15) {
 								row2.breastfeeding = null;
 							} else {
 	                         		
-            row2.breastfeeding = rs_tDBInput_16.getBoolean(14);
+            row2.breastfeeding = rs_tDBInput_16.getBoolean(15);
             if(rs_tDBInput_16.wasNull()){
                     row2.breastfeeding = null;
             }
 		                    }
-							if(colQtyInRs_tDBInput_16 < 15) {
+							if(colQtyInRs_tDBInput_16 < 16) {
 								row2.status_at_registration = null;
 							} else {
 	                         		
-        	row2.status_at_registration = routines.system.JDBCUtil.getString(rs_tDBInput_16, 15, false);
+        	row2.status_at_registration = routines.system.JDBCUtil.getString(rs_tDBInput_16, 16, false);
 		                    }
-							if(colQtyInRs_tDBInput_16 < 16) {
+							if(colQtyInRs_tDBInput_16 < 17) {
 								row2.enrollment_setting = null;
 							} else {
 	                         		
-        	row2.enrollment_setting = routines.system.JDBCUtil.getString(rs_tDBInput_16, 16, false);
+        	row2.enrollment_setting = routines.system.JDBCUtil.getString(rs_tDBInput_16, 17, false);
 		                    }
-							if(colQtyInRs_tDBInput_16 < 17) {
+							if(colQtyInRs_tDBInput_16 < 18) {
 								row2.send_message = null;
 							} else {
 	                         		
-            row2.send_message = rs_tDBInput_16.getBoolean(17);
+            row2.send_message = rs_tDBInput_16.getBoolean(18);
             if(rs_tDBInput_16.wasNull()){
                     row2.send_message = null;
             }
 		                    }
-							if(colQtyInRs_tDBInput_16 < 18) {
-								row2.archived = false;
+							if(colQtyInRs_tDBInput_16 < 19) {
+								row2.archived = null;
 							} else {
 	                         		
-            row2.archived = rs_tDBInput_16.getBoolean(18);
+            row2.archived = rs_tDBInput_16.getBoolean(19);
             if(rs_tDBInput_16.wasNull()){
-                    throw new RuntimeException("Null value in non-Nullable column");
+                    row2.archived = null;
             }
 		                    }
-							if(colQtyInRs_tDBInput_16 < 19) {
+							if(colQtyInRs_tDBInput_16 < 20) {
 								row2.last_modified = null;
 							} else {
 										
-			row2.last_modified = routines.system.JDBCUtil.getDate(rs_tDBInput_16, 19);
+			row2.last_modified = routines.system.JDBCUtil.getDate(rs_tDBInput_16, 20);
 		                    }
-							if(colQtyInRs_tDBInput_16 < 20) {
+							if(colQtyInRs_tDBInput_16 < 21) {
 								row2.facility_id = 0;
 							} else {
 		                          
-            row2.facility_id = rs_tDBInput_16.getLong(20);
+            row2.facility_id = rs_tDBInput_16.getLong(21);
             if(rs_tDBInput_16.wasNull()){
                     throw new RuntimeException("Null value in non-Nullable column");
             }
 		                    }
-							if(colQtyInRs_tDBInput_16 < 21) {
+							if(colQtyInRs_tDBInput_16 < 22) {
 								row2.facility_name = null;
 							} else {
 	                         		
-        	row2.facility_name = routines.system.JDBCUtil.getString(rs_tDBInput_16, 21, false);
+        	row2.facility_name = routines.system.JDBCUtil.getString(rs_tDBInput_16, 22, false);
 		                    }
-							if(colQtyInRs_tDBInput_16 < 22) {
+							if(colQtyInRs_tDBInput_16 < 23) {
 								row2.lga_name = null;
 							} else {
 	                         		
-        	row2.lga_name = routines.system.JDBCUtil.getString(rs_tDBInput_16, 22, false);
+        	row2.lga_name = routines.system.JDBCUtil.getString(rs_tDBInput_16, 23, false);
 		                    }
-							if(colQtyInRs_tDBInput_16 < 23) {
+							if(colQtyInRs_tDBInput_16 < 24) {
 								row2.datim_id = null;
 							} else {
 	                         		
-        	row2.datim_id = routines.system.JDBCUtil.getString(rs_tDBInput_16, 23, false);
+        	row2.datim_id = routines.system.JDBCUtil.getString(rs_tDBInput_16, 24, false);
 		                    }
-							if(colQtyInRs_tDBInput_16 < 24) {
+							if(colQtyInRs_tDBInput_16 < 25) {
 								row2.tb_status = null;
 							} else {
 	                         		
-        	row2.tb_status = routines.system.JDBCUtil.getString(rs_tDBInput_16, 24, false);
+        	row2.tb_status = routines.system.JDBCUtil.getString(rs_tDBInput_16, 25, false);
 		                    }
 					
 
@@ -29624,6 +29677,6 @@ if (execStat) {
     ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- *     720823 characters generated by Talend Open Studio for Big Data 
- *     on the March 11, 2023 5:53:15 AM WAT
+ *     722209 characters generated by Talend Open Studio for Big Data 
+ *     on the March 22, 2023 12:19:20 PM WAT
  ************************************************************************************************/

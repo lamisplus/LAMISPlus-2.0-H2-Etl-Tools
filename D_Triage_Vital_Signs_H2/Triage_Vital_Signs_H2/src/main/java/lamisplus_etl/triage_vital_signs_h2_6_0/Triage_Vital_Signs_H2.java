@@ -61,7 +61,7 @@ import java.util.Comparator;
 /**
  * Job: Triage_Vital_Signs_H2 Purpose: Triage_VitalSigns<br>
  * Description: Triage_VitalSigns <br>
- * @author user@talend.com
+ * @author ilozuechukwuemeka@yahoo.com
  * @version 7.3.1.20200219_1130
  * @status 
  */
@@ -1131,6 +1131,12 @@ public static class clinic_triageStruct implements routines.system.IPersistableR
     static byte[] commonByteArray_LAMISPLUS_ETL_Triage_Vital_Signs_H2 = new byte[0];
 
 	
+			    public int clinic_id;
+
+				public int getClinic_id () {
+					return this.clinic_id;
+				}
+				
 			    public String person_uuid;
 
 				public String getPerson_uuid () {
@@ -1167,9 +1173,9 @@ public static class clinic_triageStruct implements routines.system.IPersistableR
 					return this.uuid;
 				}
 				
-			    public Integer archived;
+			    public int archived;
 
-				public Integer getArchived () {
+				public int getArchived () {
 					return this.archived;
 				}
 				
@@ -1256,26 +1262,6 @@ public static class clinic_triageStruct implements routines.system.IPersistableR
 	    	dos.writeLong(date1.getTime());
     	}
     }
-	private Integer readInteger(ObjectInputStream dis) throws IOException{
-		Integer intReturn;
-        int length = 0;
-        length = dis.readByte();
-		if (length == -1) {
-			intReturn = null;
-		} else {
-	    	intReturn = dis.readInt();
-		}
-		return intReturn;
-	}
-
-	private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException{
-		if(intNum == null) {
-            dos.writeByte(-1);
-		} else {
-			dos.writeByte(0);
-	    	dos.writeInt(intNum);
-    	}
-	}
 
     public void readData(ObjectInputStream dis) {
 
@@ -1285,6 +1271,8 @@ public static class clinic_triageStruct implements routines.system.IPersistableR
 
         		int length = 0;
 		
+			        this.clinic_id = dis.readInt();
+					
 					this.person_uuid = readString(dis);
 					
 			        this.facility_id = dis.readLong();
@@ -1297,7 +1285,7 @@ public static class clinic_triageStruct implements routines.system.IPersistableR
 					
 					this.uuid = readString(dis);
 					
-						this.archived = readInteger(dis);
+			        this.archived = dis.readInt();
 					
 			            length = dis.readByte();
            				if (length == -1) {
@@ -1347,6 +1335,10 @@ public static class clinic_triageStruct implements routines.system.IPersistableR
         try {
 
 		
+					// int
+				
+		            	dos.writeInt(this.clinic_id);
+					
 					// String
 				
 						writeString(this.person_uuid,dos);
@@ -1371,9 +1363,9 @@ public static class clinic_triageStruct implements routines.system.IPersistableR
 				
 						writeString(this.uuid,dos);
 					
-					// Integer
+					// int
 				
-						writeInteger(this.archived,dos);
+		            	dos.writeInt(this.archived);
 					
 					// Double
 				
@@ -1428,7 +1420,8 @@ public static class clinic_triageStruct implements routines.system.IPersistableR
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString());
 		sb.append("[");
-		sb.append("person_uuid="+person_uuid);
+		sb.append("clinic_id="+String.valueOf(clinic_id));
+		sb.append(",person_uuid="+person_uuid);
 		sb.append(",facility_id="+String.valueOf(facility_id));
 		sb.append(",capture_date="+String.valueOf(capture_date));
 		sb.append(",created_date="+String.valueOf(created_date));
@@ -1483,8 +1476,22 @@ public static class clinic_triageStruct implements routines.system.IPersistableR
 public static class after_tDBInput_1Struct implements routines.system.IPersistableRow<after_tDBInput_1Struct> {
     final static byte[] commonByteArrayLock_LAMISPLUS_ETL_Triage_Vital_Signs_H2 = new byte[0];
     static byte[] commonByteArray_LAMISPLUS_ETL_Triage_Vital_Signs_H2 = new byte[0];
+	protected static final int DEFAULT_HASHCODE = 1;
+    protected static final int PRIME = 31;
+    protected int hashCode = DEFAULT_HASHCODE;
+    public boolean hashCodeDirty = true;
+
+    public String loopKey;
+
+
 
 	
+			    public int clinic_id;
+
+				public int getClinic_id () {
+					return this.clinic_id;
+				}
+				
 			    public String person_uuid;
 
 				public String getPerson_uuid () {
@@ -1521,9 +1528,9 @@ public static class after_tDBInput_1Struct implements routines.system.IPersistab
 					return this.uuid;
 				}
 				
-			    public Integer archived;
+			    public int archived;
 
-				public Integer getArchived () {
+				public int getArchived () {
 					return this.archived;
 				}
 				
@@ -1557,6 +1564,60 @@ public static class after_tDBInput_1Struct implements routines.system.IPersistab
 					return this.datim_id;
 				}
 				
+
+
+	@Override
+	public int hashCode() {
+		if (this.hashCodeDirty) {
+			final int prime = PRIME;
+			int result = DEFAULT_HASHCODE;
+	
+							result = prime * result + (int) this.clinic_id;
+						
+    		this.hashCode = result;
+    		this.hashCodeDirty = false;
+		}
+		return this.hashCode;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) return true;
+		if (obj == null) return false;
+		if (getClass() != obj.getClass()) return false;
+		final after_tDBInput_1Struct other = (after_tDBInput_1Struct) obj;
+		
+						if (this.clinic_id != other.clinic_id)
+							return false;
+					
+
+		return true;
+    }
+
+	public void copyDataTo(after_tDBInput_1Struct other) {
+
+		other.clinic_id = this.clinic_id;
+	            other.person_uuid = this.person_uuid;
+	            other.facility_id = this.facility_id;
+	            other.capture_date = this.capture_date;
+	            other.created_date = this.created_date;
+	            other.last_modified_date = this.last_modified_date;
+	            other.uuid = this.uuid;
+	            other.archived = this.archived;
+	            other.body_weight = this.body_weight;
+	            other.systolic = this.systolic;
+	            other.diastolic = this.diastolic;
+	            other.height = this.height;
+	            other.datim_id = this.datim_id;
+	            
+	}
+
+	public void copyKeysDataTo(after_tDBInput_1Struct other) {
+
+		other.clinic_id = this.clinic_id;
+	            	
+	}
+
 
 
 
@@ -1610,26 +1671,6 @@ public static class after_tDBInput_1Struct implements routines.system.IPersistab
 	    	dos.writeLong(date1.getTime());
     	}
     }
-	private Integer readInteger(ObjectInputStream dis) throws IOException{
-		Integer intReturn;
-        int length = 0;
-        length = dis.readByte();
-		if (length == -1) {
-			intReturn = null;
-		} else {
-	    	intReturn = dis.readInt();
-		}
-		return intReturn;
-	}
-
-	private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException{
-		if(intNum == null) {
-            dos.writeByte(-1);
-		} else {
-			dos.writeByte(0);
-	    	dos.writeInt(intNum);
-    	}
-	}
 
     public void readData(ObjectInputStream dis) {
 
@@ -1639,6 +1680,8 @@ public static class after_tDBInput_1Struct implements routines.system.IPersistab
 
         		int length = 0;
 		
+			        this.clinic_id = dis.readInt();
+					
 					this.person_uuid = readString(dis);
 					
 			        this.facility_id = dis.readLong();
@@ -1651,7 +1694,7 @@ public static class after_tDBInput_1Struct implements routines.system.IPersistab
 					
 					this.uuid = readString(dis);
 					
-						this.archived = readInteger(dis);
+			        this.archived = dis.readInt();
 					
 			            length = dis.readByte();
            				if (length == -1) {
@@ -1701,6 +1744,10 @@ public static class after_tDBInput_1Struct implements routines.system.IPersistab
         try {
 
 		
+					// int
+				
+		            	dos.writeInt(this.clinic_id);
+					
 					// String
 				
 						writeString(this.person_uuid,dos);
@@ -1725,9 +1772,9 @@ public static class after_tDBInput_1Struct implements routines.system.IPersistab
 				
 						writeString(this.uuid,dos);
 					
-					// Integer
+					// int
 				
-						writeInteger(this.archived,dos);
+		            	dos.writeInt(this.archived);
 					
 					// Double
 				
@@ -1782,7 +1829,8 @@ public static class after_tDBInput_1Struct implements routines.system.IPersistab
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString());
 		sb.append("[");
-		sb.append("person_uuid="+person_uuid);
+		sb.append("clinic_id="+String.valueOf(clinic_id));
+		sb.append(",person_uuid="+person_uuid);
 		sb.append(",facility_id="+String.valueOf(facility_id));
 		sb.append(",capture_date="+String.valueOf(capture_date));
 		sb.append(",created_date="+String.valueOf(created_date));
@@ -1806,6 +1854,12 @@ public static class after_tDBInput_1Struct implements routines.system.IPersistab
 
 		int returnValue = -1;
 		
+						returnValue = checkNullsAndCompare(this.clinic_id, other.clinic_id);
+						if(returnValue != 0) {
+							return returnValue;
+						}
+
+					
 	    return returnValue;
     }
 
@@ -2091,14 +2145,14 @@ extractStruct extract_tmp = new extractStruct();
 		    java.sql.Connection conn_tDBInput_1 = null;
 				String driverClass_tDBInput_1 = "org.postgresql.Driver";
 			    java.lang.Class jdbcclazz_tDBInput_1 = java.lang.Class.forName(driverClass_tDBInput_1);
-				String dbUser_tDBInput_1 = context.LAMIS3_H2_Login;
+				String dbUser_tDBInput_1 = context.LAMIS3_Login;
 				
 				
-	final String decryptedPassword_tDBInput_1 = context.LAMIS3_H2_Password; 
+	final String decryptedPassword_tDBInput_1 = context.LAMIS3_Password; 
 				
 				String dbPwd_tDBInput_1 = decryptedPassword_tDBInput_1;
 				
-				String url_tDBInput_1 = "jdbc:postgresql://" + context.LAMIS3_H2_Server + ":" + context.LAMIS3_H2_Port + "/" + context.LAMIS3_H2_Database + "?" + context.LAMIS3_H2_AdditionalParams;
+				String url_tDBInput_1 = "jdbc:postgresql://" + context.LAMIS3_Server + ":" + context.LAMIS3_Port + "/" + context.LAMIS3_Database + "?" + context.LAMIS3_AdditionalParams;
 				
 				conn_tDBInput_1 = java.sql.DriverManager.getConnection(url_tDBInput_1,dbUser_tDBInput_1,dbPwd_tDBInput_1);
 		        
@@ -2107,15 +2161,16 @@ extractStruct extract_tmp = new extractStruct();
 		    
 			java.sql.Statement stmt_tDBInput_1 = conn_tDBInput_1.createStatement();
 
-		    String dbquery_tDBInput_1 = "SELECT p.id_uuid as person_uuid, \n    c.facility_id,\n	c.date_visit::timestamp as capture_date, \n	c.time_stamp as cre"
-+"ated_date, \n	c.time_stamp as last_modified_date,\n	CONCAT('t', c.clinic_id,'-',c.clinic_id::VARCHAR, '-', f.datim_id, '"
-+"-', c.clinic_id * c.clinic_id, '-',  c.clinic_id, 't') as uuid,\n    0 AS archived, \n	c.body_weight, \n	NULLIF(regexp_r"
-+"eplace((case when length(split_part(c.bp, '/', 1))>1 then cast(split_part(c.bp, '/', 1)as varchar) else null end), '\\D'"
-+",'','g'), '')::double precision as systolic,\n   	NULLIF(regexp_replace((case when length(split_part(c.bp, '/', 2))>1 th"
-+"en cast(split_part(c.bp, '/', 2)as varchar) else null end), '\\D','','g'), '')::double precision as diastolic, \n	  CASE"
-+"\n    WHEN c.height is not null AND POSITION('.' IN c.height::VARCHAR) > 0 THEN (c.height * 100)\n	ELSE\n	c.height\n  EN"
-+"D \n  AS height,\n    f.datim_id AS datim_id\n    FROM clinic c \n    INNER JOIN patient p \n    ON p.patient_id=c.patie"
-+"nt_id\n    INNER JOIN facility f \n    ON f.facility_id=p.facility_id";
+		    String dbquery_tDBInput_1 = "SELECT DISTINCT ON (c.clinic_id) clinic_id, p.id_uuid as person_uuid, \n    c.facility_id,\n	c.date_visit::timestamp as"
++" capture_date, \n	c.time_stamp as created_date, \n	c.time_stamp as last_modified_date,\n	CONCAT('t', c.clinic_id,'-',c.c"
++"linic_id::VARCHAR, '-', f.datim_id, '-', c.clinic_id * c.clinic_id, '-',  c.clinic_id, 't') as uuid,\n    0 AS archived,"
++" \n	c.body_weight, \n	NULLIF(regexp_replace((case when length(split_part(c.bp, '/', 1))>1 then cast(split_part(c.bp, '/'"
++", 1)as varchar) else null end), '\\D','','g'), '')::double precision as systolic,\n   	NULLIF(regexp_replace((case when "
++"length(split_part(c.bp, '/', 2))>1 then cast(split_part(c.bp, '/', 2)as varchar) else null end), '\\D','','g'), '')::dou"
++"ble precision as diastolic, \n	  CASE\n    WHEN c.height is not null AND POSITION('.' IN c.height::VARCHAR) > 0 THEN (c."
++"height * 100)\n	ELSE\n	c.height\n  END \n  AS height,\n    f.datim_id AS datim_id\n    FROM clinic c \n    INNER JOIN pa"
++"tient p \n    ON p.patient_id=c.patient_id\n    INNER JOIN facility f \n    ON f.facility_id=p.facility_id\nORDER BY cli"
++"nic_id ASC";
 			
 
             	globalMap.put("tDBInput_1_QUERY",dbquery_tDBInput_1);
@@ -2133,94 +2188,103 @@ extractStruct extract_tmp = new extractStruct();
 		        nb_line_tDBInput_1++;
 		        
 							if(colQtyInRs_tDBInput_1 < 1) {
-								clinic_triage.person_uuid = null;
-							} else {
-	                         		
-        	clinic_triage.person_uuid = routines.system.JDBCUtil.getString(rs_tDBInput_1, 1, false);
-		                    }
-							if(colQtyInRs_tDBInput_1 < 2) {
-								clinic_triage.facility_id = 0;
+								clinic_triage.clinic_id = 0;
 							} else {
 		                          
-            clinic_triage.facility_id = rs_tDBInput_1.getLong(2);
+            clinic_triage.clinic_id = rs_tDBInput_1.getInt(1);
             if(rs_tDBInput_1.wasNull()){
                     throw new RuntimeException("Null value in non-Nullable column");
             }
 		                    }
+							if(colQtyInRs_tDBInput_1 < 2) {
+								clinic_triage.person_uuid = null;
+							} else {
+	                         		
+        	clinic_triage.person_uuid = routines.system.JDBCUtil.getString(rs_tDBInput_1, 2, false);
+		                    }
 							if(colQtyInRs_tDBInput_1 < 3) {
+								clinic_triage.facility_id = 0;
+							} else {
+		                          
+            clinic_triage.facility_id = rs_tDBInput_1.getLong(3);
+            if(rs_tDBInput_1.wasNull()){
+                    throw new RuntimeException("Null value in non-Nullable column");
+            }
+		                    }
+							if(colQtyInRs_tDBInput_1 < 4) {
 								clinic_triage.capture_date = null;
 							} else {
 										
-			clinic_triage.capture_date = routines.system.JDBCUtil.getDate(rs_tDBInput_1, 3);
+			clinic_triage.capture_date = routines.system.JDBCUtil.getDate(rs_tDBInput_1, 4);
 		                    }
-							if(colQtyInRs_tDBInput_1 < 4) {
+							if(colQtyInRs_tDBInput_1 < 5) {
 								clinic_triage.created_date = null;
 							} else {
 										
-			clinic_triage.created_date = routines.system.JDBCUtil.getDate(rs_tDBInput_1, 4);
+			clinic_triage.created_date = routines.system.JDBCUtil.getDate(rs_tDBInput_1, 5);
 		                    }
-							if(colQtyInRs_tDBInput_1 < 5) {
+							if(colQtyInRs_tDBInput_1 < 6) {
 								clinic_triage.last_modified_date = null;
 							} else {
 										
-			clinic_triage.last_modified_date = routines.system.JDBCUtil.getDate(rs_tDBInput_1, 5);
+			clinic_triage.last_modified_date = routines.system.JDBCUtil.getDate(rs_tDBInput_1, 6);
 		                    }
-							if(colQtyInRs_tDBInput_1 < 6) {
+							if(colQtyInRs_tDBInput_1 < 7) {
 								clinic_triage.uuid = null;
 							} else {
 	                         		
-        	clinic_triage.uuid = routines.system.JDBCUtil.getString(rs_tDBInput_1, 6, false);
-		                    }
-							if(colQtyInRs_tDBInput_1 < 7) {
-								clinic_triage.archived = null;
-							} else {
-		                          
-            clinic_triage.archived = rs_tDBInput_1.getInt(7);
-            if(rs_tDBInput_1.wasNull()){
-                    clinic_triage.archived = null;
-            }
+        	clinic_triage.uuid = routines.system.JDBCUtil.getString(rs_tDBInput_1, 7, false);
 		                    }
 							if(colQtyInRs_tDBInput_1 < 8) {
+								clinic_triage.archived = 0;
+							} else {
+		                          
+            clinic_triage.archived = rs_tDBInput_1.getInt(8);
+            if(rs_tDBInput_1.wasNull()){
+                    throw new RuntimeException("Null value in non-Nullable column");
+            }
+		                    }
+							if(colQtyInRs_tDBInput_1 < 9) {
 								clinic_triage.body_weight = null;
 							} else {
 	                         		
-            clinic_triage.body_weight = rs_tDBInput_1.getDouble(8);
+            clinic_triage.body_weight = rs_tDBInput_1.getDouble(9);
             if(rs_tDBInput_1.wasNull()){
                     clinic_triage.body_weight = null;
             }
 		                    }
-							if(colQtyInRs_tDBInput_1 < 9) {
+							if(colQtyInRs_tDBInput_1 < 10) {
 								clinic_triage.systolic = null;
 							} else {
 	                         		
-            clinic_triage.systolic = rs_tDBInput_1.getDouble(9);
+            clinic_triage.systolic = rs_tDBInput_1.getDouble(10);
             if(rs_tDBInput_1.wasNull()){
                     clinic_triage.systolic = null;
             }
 		                    }
-							if(colQtyInRs_tDBInput_1 < 10) {
+							if(colQtyInRs_tDBInput_1 < 11) {
 								clinic_triage.diastolic = null;
 							} else {
 	                         		
-            clinic_triage.diastolic = rs_tDBInput_1.getDouble(10);
+            clinic_triage.diastolic = rs_tDBInput_1.getDouble(11);
             if(rs_tDBInput_1.wasNull()){
                     clinic_triage.diastolic = null;
             }
 		                    }
-							if(colQtyInRs_tDBInput_1 < 11) {
+							if(colQtyInRs_tDBInput_1 < 12) {
 								clinic_triage.height = null;
 							} else {
 	                         		
-            clinic_triage.height = rs_tDBInput_1.getDouble(11);
+            clinic_triage.height = rs_tDBInput_1.getDouble(12);
             if(rs_tDBInput_1.wasNull()){
                     clinic_triage.height = null;
             }
 		                    }
-							if(colQtyInRs_tDBInput_1 < 12) {
+							if(colQtyInRs_tDBInput_1 < 13) {
 								clinic_triage.datim_id = null;
 							} else {
 	                         		
-        	clinic_triage.datim_id = routines.system.JDBCUtil.getString(rs_tDBInput_1, 12, false);
+        	clinic_triage.datim_id = routines.system.JDBCUtil.getString(rs_tDBInput_1, 13, false);
 		                    }
 					
 
@@ -2423,7 +2487,7 @@ extract_tmp.systolic = clinic_triage.systolic ;
 extract_tmp.height = clinic_triage.height ;
 extract_tmp.datim_id = clinic_triage.datim_id ;
 extract_tmp.visit_id = patient_visit.uuid;
-extract_tmp.id = Numeric.sequence("id",1,1) ;
+extract_tmp.id = clinic_triage.clinic_id;
 extract_tmp.capture_date = clinic_triage.capture_date ;
 extract = extract_tmp;
 // ###############################
@@ -11351,6 +11415,6 @@ if (execStat) {
     ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- *     291384 characters generated by Talend Open Studio for Big Data 
- *     on the March 11, 2023 5:53:59 AM WAT
+ *     293253 characters generated by Talend Open Studio for Big Data 
+ *     on the March 22, 2023 12:20:10 PM WAT
  ************************************************************************************************/

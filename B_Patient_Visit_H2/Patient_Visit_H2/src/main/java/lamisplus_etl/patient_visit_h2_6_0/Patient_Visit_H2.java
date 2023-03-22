@@ -91,7 +91,7 @@ import java.util.Comparator;
 /**
  * Job: Patient_Visit_H2 Purpose: Patient_Visit<br>
  * Description: Patient_Visit <br>
- * @author user@talend.com
+ * @author ilozuechukwuemeka@yahoo.com
  * @version 7.3.1.20200219_1130
  * @status 
  */
@@ -2014,14 +2014,14 @@ extractStruct extract_tmp = new extractStruct();
 		    java.sql.Connection conn_tDBInput_1 = null;
 				String driverClass_tDBInput_1 = "org.postgresql.Driver";
 			    java.lang.Class jdbcclazz_tDBInput_1 = java.lang.Class.forName(driverClass_tDBInput_1);
-				String dbUser_tDBInput_1 = context.LAMIS3_H2_Login;
+				String dbUser_tDBInput_1 = context.LAMIS3_Login;
 				
 				
-	final String decryptedPassword_tDBInput_1 = context.LAMIS3_H2_Password; 
+	final String decryptedPassword_tDBInput_1 = context.LAMIS3_Password; 
 				
 				String dbPwd_tDBInput_1 = decryptedPassword_tDBInput_1;
 				
-				String url_tDBInput_1 = "jdbc:postgresql://" + context.LAMIS3_H2_Server + ":" + context.LAMIS3_H2_Port + "/" + context.LAMIS3_H2_Database + "?" + context.LAMIS3_H2_AdditionalParams;
+				String url_tDBInput_1 = "jdbc:postgresql://" + context.LAMIS3_Server + ":" + context.LAMIS3_Port + "/" + context.LAMIS3_Database + "?" + context.LAMIS3_AdditionalParams;
 				
 				conn_tDBInput_1 = java.sql.DriverManager.getConnection(url_tDBInput_1,dbUser_tDBInput_1,dbPwd_tDBInput_1);
 		        
@@ -3474,14 +3474,14 @@ clinic_extract_by_dateStruct clinic_extract_by_date_tmp = new clinic_extract_by_
 		    java.sql.Connection conn_tDBInput_2 = null;
 				String driverClass_tDBInput_2 = "org.postgresql.Driver";
 			    java.lang.Class jdbcclazz_tDBInput_2 = java.lang.Class.forName(driverClass_tDBInput_2);
-				String dbUser_tDBInput_2 = context.LAMIS3_H2_Login;
+				String dbUser_tDBInput_2 = context.LAMIS3_Login;
 				
 				
-	final String decryptedPassword_tDBInput_2 = context.LAMIS3_H2_Password; 
+	final String decryptedPassword_tDBInput_2 = context.LAMIS3_Password; 
 				
 				String dbPwd_tDBInput_2 = decryptedPassword_tDBInput_2;
 				
-				String url_tDBInput_2 = "jdbc:postgresql://" + context.LAMIS3_H2_Server + ":" + context.LAMIS3_H2_Port + "/" + context.LAMIS3_H2_Database + "?" + context.LAMIS3_H2_AdditionalParams;
+				String url_tDBInput_2 = "jdbc:postgresql://" + context.LAMIS3_Server + ":" + context.LAMIS3_Port + "/" + context.LAMIS3_Database + "?" + context.LAMIS3_AdditionalParams;
 				
 				conn_tDBInput_2 = java.sql.DriverManager.getConnection(url_tDBInput_2,dbUser_tDBInput_2,dbPwd_tDBInput_2);
 		        
@@ -4934,14 +4934,14 @@ Pharmacy_ExtractStruct Pharmacy_Extract_tmp = new Pharmacy_ExtractStruct();
 		    java.sql.Connection conn_tDBInput_3 = null;
 				String driverClass_tDBInput_3 = "org.postgresql.Driver";
 			    java.lang.Class jdbcclazz_tDBInput_3 = java.lang.Class.forName(driverClass_tDBInput_3);
-				String dbUser_tDBInput_3 = context.LAMIS3_H2_Login;
+				String dbUser_tDBInput_3 = context.LAMIS3_Login;
 				
 				
-	final String decryptedPassword_tDBInput_3 = context.LAMIS3_H2_Password; 
+	final String decryptedPassword_tDBInput_3 = context.LAMIS3_Password; 
 				
 				String dbPwd_tDBInput_3 = decryptedPassword_tDBInput_3;
 				
-				String url_tDBInput_3 = "jdbc:postgresql://" + context.LAMIS3_H2_Server + ":" + context.LAMIS3_H2_Port + "/" + context.LAMIS3_H2_Database + "?" + context.LAMIS3_H2_AdditionalParams;
+				String url_tDBInput_3 = "jdbc:postgresql://" + context.LAMIS3_Server + ":" + context.LAMIS3_Port + "/" + context.LAMIS3_Database + "?" + context.LAMIS3_AdditionalParams;
 				
 				conn_tDBInput_3 = java.sql.DriverManager.getConnection(url_tDBInput_3,dbUser_tDBInput_3,dbPwd_tDBInput_3);
 		        
@@ -6587,14 +6587,14 @@ eac1_visit_extractStruct eac1_visit_extract_tmp = new eac1_visit_extractStruct()
 		    java.sql.Connection conn_tDBInput_9 = null;
 				String driverClass_tDBInput_9 = "org.postgresql.Driver";
 			    java.lang.Class jdbcclazz_tDBInput_9 = java.lang.Class.forName(driverClass_tDBInput_9);
-				String dbUser_tDBInput_9 = context.LAMIS3_H2_Login;
+				String dbUser_tDBInput_9 = context.LAMIS3_Login;
 				
 				
-	final String decryptedPassword_tDBInput_9 = context.LAMIS3_H2_Password; 
+	final String decryptedPassword_tDBInput_9 = context.LAMIS3_Password; 
 				
 				String dbPwd_tDBInput_9 = decryptedPassword_tDBInput_9;
 				
-				String url_tDBInput_9 = "jdbc:postgresql://" + context.LAMIS3_H2_Server + ":" + context.LAMIS3_H2_Port + "/" + context.LAMIS3_H2_Database + "?" + context.LAMIS3_H2_AdditionalParams;
+				String url_tDBInput_9 = "jdbc:postgresql://" + context.LAMIS3_Server + ":" + context.LAMIS3_Port + "/" + context.LAMIS3_Database + "?" + context.LAMIS3_AdditionalParams;
 				
 				conn_tDBInput_9 = java.sql.DriverManager.getConnection(url_tDBInput_9,dbUser_tDBInput_9,dbPwd_tDBInput_9);
 		        
@@ -8047,14 +8047,14 @@ eac2_visit_extractStruct eac2_visit_extract_tmp = new eac2_visit_extractStruct()
 		    java.sql.Connection conn_tDBInput_10 = null;
 				String driverClass_tDBInput_10 = "org.postgresql.Driver";
 			    java.lang.Class jdbcclazz_tDBInput_10 = java.lang.Class.forName(driverClass_tDBInput_10);
-				String dbUser_tDBInput_10 = context.LAMIS3_H2_Login;
+				String dbUser_tDBInput_10 = context.LAMIS3_Login;
 				
 				
-	final String decryptedPassword_tDBInput_10 = context.LAMIS3_H2_Password; 
+	final String decryptedPassword_tDBInput_10 = context.LAMIS3_Password; 
 				
 				String dbPwd_tDBInput_10 = decryptedPassword_tDBInput_10;
 				
-				String url_tDBInput_10 = "jdbc:postgresql://" + context.LAMIS3_H2_Server + ":" + context.LAMIS3_H2_Port + "/" + context.LAMIS3_H2_Database + "?" + context.LAMIS3_H2_AdditionalParams;
+				String url_tDBInput_10 = "jdbc:postgresql://" + context.LAMIS3_Server + ":" + context.LAMIS3_Port + "/" + context.LAMIS3_Database + "?" + context.LAMIS3_AdditionalParams;
 				
 				conn_tDBInput_10 = java.sql.DriverManager.getConnection(url_tDBInput_10,dbUser_tDBInput_10,dbPwd_tDBInput_10);
 		        
@@ -9507,14 +9507,14 @@ eac3_visit_extractStruct eac3_visit_extract_tmp = new eac3_visit_extractStruct()
 		    java.sql.Connection conn_tDBInput_11 = null;
 				String driverClass_tDBInput_11 = "org.postgresql.Driver";
 			    java.lang.Class jdbcclazz_tDBInput_11 = java.lang.Class.forName(driverClass_tDBInput_11);
-				String dbUser_tDBInput_11 = context.LAMIS3_H2_Login;
+				String dbUser_tDBInput_11 = context.LAMIS3_Login;
 				
 				
-	final String decryptedPassword_tDBInput_11 = context.LAMIS3_H2_Password; 
+	final String decryptedPassword_tDBInput_11 = context.LAMIS3_Password; 
 				
 				String dbPwd_tDBInput_11 = decryptedPassword_tDBInput_11;
 				
-				String url_tDBInput_11 = "jdbc:postgresql://" + context.LAMIS3_H2_Server + ":" + context.LAMIS3_H2_Port + "/" + context.LAMIS3_H2_Database + "?" + context.LAMIS3_H2_AdditionalParams;
+				String url_tDBInput_11 = "jdbc:postgresql://" + context.LAMIS3_Server + ":" + context.LAMIS3_Port + "/" + context.LAMIS3_Database + "?" + context.LAMIS3_AdditionalParams;
 				
 				conn_tDBInput_11 = java.sql.DriverManager.getConnection(url_tDBInput_11,dbUser_tDBInput_11,dbPwd_tDBInput_11);
 		        
@@ -11160,14 +11160,14 @@ Eac4_visit_extractStruct Eac4_visit_extract_tmp = new Eac4_visit_extractStruct()
 		    java.sql.Connection conn_tDBInput_13 = null;
 				String driverClass_tDBInput_13 = "org.postgresql.Driver";
 			    java.lang.Class jdbcclazz_tDBInput_13 = java.lang.Class.forName(driverClass_tDBInput_13);
-				String dbUser_tDBInput_13 = context.LAMIS3_H2_Login;
+				String dbUser_tDBInput_13 = context.LAMIS3_Login;
 				
 				
-	final String decryptedPassword_tDBInput_13 = context.LAMIS3_H2_Password; 
+	final String decryptedPassword_tDBInput_13 = context.LAMIS3_Password; 
 				
 				String dbPwd_tDBInput_13 = decryptedPassword_tDBInput_13;
 				
-				String url_tDBInput_13 = "jdbc:postgresql://" + context.LAMIS3_H2_Server + ":" + context.LAMIS3_H2_Port + "/" + context.LAMIS3_H2_Database + "?" + context.LAMIS3_H2_AdditionalParams;
+				String url_tDBInput_13 = "jdbc:postgresql://" + context.LAMIS3_Server + ":" + context.LAMIS3_Port + "/" + context.LAMIS3_Database + "?" + context.LAMIS3_AdditionalParams;
 				
 				conn_tDBInput_13 = java.sql.DriverManager.getConnection(url_tDBInput_13,dbUser_tDBInput_13,dbPwd_tDBInput_13);
 		        
@@ -12620,14 +12620,14 @@ Eac5_visit_extractStruct Eac5_visit_extract_tmp = new Eac5_visit_extractStruct()
 		    java.sql.Connection conn_tDBInput_14 = null;
 				String driverClass_tDBInput_14 = "org.postgresql.Driver";
 			    java.lang.Class jdbcclazz_tDBInput_14 = java.lang.Class.forName(driverClass_tDBInput_14);
-				String dbUser_tDBInput_14 = context.LAMIS3_H2_Login;
+				String dbUser_tDBInput_14 = context.LAMIS3_Login;
 				
 				
-	final String decryptedPassword_tDBInput_14 = context.LAMIS3_H2_Password; 
+	final String decryptedPassword_tDBInput_14 = context.LAMIS3_Password; 
 				
 				String dbPwd_tDBInput_14 = decryptedPassword_tDBInput_14;
 				
-				String url_tDBInput_14 = "jdbc:postgresql://" + context.LAMIS3_H2_Server + ":" + context.LAMIS3_H2_Port + "/" + context.LAMIS3_H2_Database + "?" + context.LAMIS3_H2_AdditionalParams;
+				String url_tDBInput_14 = "jdbc:postgresql://" + context.LAMIS3_Server + ":" + context.LAMIS3_Port + "/" + context.LAMIS3_Database + "?" + context.LAMIS3_AdditionalParams;
 				
 				conn_tDBInput_14 = java.sql.DriverManager.getConnection(url_tDBInput_14,dbUser_tDBInput_14,dbPwd_tDBInput_14);
 		        
@@ -14080,14 +14080,14 @@ Eac6_visit_extractStruct Eac6_visit_extract_tmp = new Eac6_visit_extractStruct()
 		    java.sql.Connection conn_tDBInput_15 = null;
 				String driverClass_tDBInput_15 = "org.postgresql.Driver";
 			    java.lang.Class jdbcclazz_tDBInput_15 = java.lang.Class.forName(driverClass_tDBInput_15);
-				String dbUser_tDBInput_15 = context.LAMIS3_H2_Login;
+				String dbUser_tDBInput_15 = context.LAMIS3_Login;
 				
 				
-	final String decryptedPassword_tDBInput_15 = context.LAMIS3_H2_Password; 
+	final String decryptedPassword_tDBInput_15 = context.LAMIS3_Password; 
 				
 				String dbPwd_tDBInput_15 = decryptedPassword_tDBInput_15;
 				
-				String url_tDBInput_15 = "jdbc:postgresql://" + context.LAMIS3_H2_Server + ":" + context.LAMIS3_H2_Port + "/" + context.LAMIS3_H2_Database + "?" + context.LAMIS3_H2_AdditionalParams;
+				String url_tDBInput_15 = "jdbc:postgresql://" + context.LAMIS3_Server + ":" + context.LAMIS3_Port + "/" + context.LAMIS3_Database + "?" + context.LAMIS3_AdditionalParams;
 				
 				conn_tDBInput_15 = java.sql.DriverManager.getConnection(url_tDBInput_15,dbUser_tDBInput_15,dbPwd_tDBInput_15);
 		        
@@ -15540,14 +15540,14 @@ Laboratory_ExtractStruct Laboratory_Extract_tmp = new Laboratory_ExtractStruct()
 		    java.sql.Connection conn_tDBInput_4 = null;
 				String driverClass_tDBInput_4 = "org.postgresql.Driver";
 			    java.lang.Class jdbcclazz_tDBInput_4 = java.lang.Class.forName(driverClass_tDBInput_4);
-				String dbUser_tDBInput_4 = context.LAMIS3_H2_Login;
+				String dbUser_tDBInput_4 = context.LAMIS3_Login;
 				
 				
-	final String decryptedPassword_tDBInput_4 = context.LAMIS3_H2_Password; 
+	final String decryptedPassword_tDBInput_4 = context.LAMIS3_Password; 
 				
 				String dbPwd_tDBInput_4 = decryptedPassword_tDBInput_4;
 				
-				String url_tDBInput_4 = "jdbc:postgresql://" + context.LAMIS3_H2_Server + ":" + context.LAMIS3_H2_Port + "/" + context.LAMIS3_H2_Database + "?" + context.LAMIS3_H2_AdditionalParams;
+				String url_tDBInput_4 = "jdbc:postgresql://" + context.LAMIS3_Server + ":" + context.LAMIS3_Port + "/" + context.LAMIS3_Database + "?" + context.LAMIS3_AdditionalParams;
 				
 				conn_tDBInput_4 = java.sql.DriverManager.getConnection(url_tDBInput_4,dbUser_tDBInput_4,dbPwd_tDBInput_4);
 		        
@@ -27044,6 +27044,6 @@ if (execStat) {
     ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- *     666886 characters generated by Talend Open Studio for Big Data 
- *     on the March 17, 2023 8:14:25 PM WAT
+ *     666718 characters generated by Talend Open Studio for Big Data 
+ *     on the March 22, 2023 12:16:12 PM WAT
  ************************************************************************************************/
