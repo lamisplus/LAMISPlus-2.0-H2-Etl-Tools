@@ -1061,10 +1061,10 @@ public static class Pharmacy_All_ExtractStruct implements routines.system.IPersi
 					return this.extra;
 				}
 				
-			    public Integer refill;
+			    public Integer refill_period;
 
-				public Integer getRefill () {
-					return this.refill;
+				public Integer getRefill_period () {
+					return this.refill_period;
 				}
 				
 			    public java.util.Date next_appointment;
@@ -1192,7 +1192,7 @@ public static class Pharmacy_All_ExtractStruct implements routines.system.IPersi
 		other.person_uuid = this.person_uuid;
 	            other.visit_date = this.visit_date;
 	            other.extra = this.extra;
-	            other.refill = this.refill;
+	            other.refill_period = this.refill_period;
 	            other.next_appointment = this.next_appointment;
 	            other.id = this.id;
 	            other.prescription_error = this.prescription_error;
@@ -1305,7 +1305,7 @@ public static class Pharmacy_All_ExtractStruct implements routines.system.IPersi
 					
 					this.extra = readString(dis);
 					
-						this.refill = readInteger(dis);
+						this.refill_period = readInteger(dis);
 					
 					this.next_appointment = readDate(dis);
 					
@@ -1384,7 +1384,7 @@ public static class Pharmacy_All_ExtractStruct implements routines.system.IPersi
 					
 					// Integer
 				
-						writeInteger(this.refill,dos);
+						writeInteger(this.refill_period,dos);
 					
 					// java.util.Date
 				
@@ -1477,7 +1477,7 @@ public static class Pharmacy_All_ExtractStruct implements routines.system.IPersi
 		sb.append("person_uuid="+person_uuid);
 		sb.append(",visit_date="+String.valueOf(visit_date));
 		sb.append(",extra="+extra);
-		sb.append(",refill="+String.valueOf(refill));
+		sb.append(",refill_period="+String.valueOf(refill_period));
 		sb.append(",next_appointment="+String.valueOf(next_appointment));
 		sb.append(",id="+String.valueOf(id));
 		sb.append(",prescription_error="+String.valueOf(prescription_error));
@@ -2052,17 +2052,20 @@ int count_tDBOutput_1=0;
                                         }
                                     }
                                 }
-                                if(!whetherExist_tDBOutput_1) {
-                                    try (java.sql.Statement stmtCreate_tDBOutput_1 = conn_tDBOutput_1.createStatement()) {
-                                        stmtCreate_tDBOutput_1.execute("CREATE TABLE \"" + tableName_tDBOutput_1 + "\"(\"person_uuid\" VARCHAR(36)   not null ,\"visit_date\" DATE  not null ,\"extra\" VARCHAR(2000)   not null ,\"refill\" INT4 ,\"next_appointment\" DATE ,\"id\" INT8  not null ,\"prescription_error\" BOOL ,\"adherence\" BOOL ,\"dsd_model_type\" VARCHAR(150)  ,\"adr_screened\" BOOL ,\"archived\" INT4  not null ,\"created_by\" TEXT  not null ,\"last_modified_by\" TEXT  not null ,\"last_modified_date\" TIMESTAMP(29)   not null ,\"created_date\" TIMESTAMP(29)   not null ,\"facility_id\" INT4 ,\"uuid\" TEXT  not null ,\"mmd_type\" VARCHAR ,\"ipt\" VARCHAR(1000)  ,primary key(\"id\"))");
+                                if(whetherExist_tDBOutput_1) {
+                                    try (java.sql.Statement stmtDrop_tDBOutput_1 = conn_tDBOutput_1.createStatement()) {
+                                        stmtDrop_tDBOutput_1.execute("DROP TABLE \"" + tableName_tDBOutput_1 + "\"" );
                                     }
+                                }
+                                try(java.sql.Statement stmtCreate_tDBOutput_1 = conn_tDBOutput_1.createStatement()) {
+                                    stmtCreate_tDBOutput_1.execute("CREATE TABLE \"" + tableName_tDBOutput_1 + "\"(\"person_uuid\" VARCHAR(36)   not null ,\"visit_date\" DATE  not null ,\"extra\" VARCHAR(2000)   not null ,\"refill_period\" INT4 ,\"next_appointment\" DATE ,\"id\" INT8  not null ,\"prescription_error\" BOOL ,\"adherence\" BOOL ,\"dsd_model_type\" VARCHAR(150)  ,\"adr_screened\" BOOL ,\"archived\" INT4  not null ,\"created_by\" TEXT  not null ,\"last_modified_by\" TEXT  not null ,\"last_modified_date\" TIMESTAMP(29)   not null ,\"created_date\" TIMESTAMP(29)   not null ,\"facility_id\" INT4 ,\"uuid\" TEXT  not null ,\"mmd_type\" VARCHAR ,\"ipt\" VARCHAR(1000)  ,primary key(\"id\"))");
                                 }
 	    java.sql.PreparedStatement pstmt_tDBOutput_1 = conn_tDBOutput_1.prepareStatement("SELECT COUNT(1) FROM \"" + tableName_tDBOutput_1 + "\" WHERE \"id\" = ?");
 	    resourceMap.put("pstmt_tDBOutput_1", pstmt_tDBOutput_1);
-	    String insert_tDBOutput_1 = "INSERT INTO \"" + tableName_tDBOutput_1 + "\" (\"person_uuid\",\"visit_date\",\"extra\",\"refill\",\"next_appointment\",\"id\",\"prescription_error\",\"adherence\",\"dsd_model_type\",\"adr_screened\",\"archived\",\"created_by\",\"last_modified_by\",\"last_modified_date\",\"created_date\",\"facility_id\",\"uuid\",\"mmd_type\",\"ipt\") VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	    String insert_tDBOutput_1 = "INSERT INTO \"" + tableName_tDBOutput_1 + "\" (\"person_uuid\",\"visit_date\",\"extra\",\"refill_period\",\"next_appointment\",\"id\",\"prescription_error\",\"adherence\",\"dsd_model_type\",\"adr_screened\",\"archived\",\"created_by\",\"last_modified_by\",\"last_modified_date\",\"created_date\",\"facility_id\",\"uuid\",\"mmd_type\",\"ipt\") VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	    java.sql.PreparedStatement pstmtInsert_tDBOutput_1 = conn_tDBOutput_1.prepareStatement(insert_tDBOutput_1);
 	    resourceMap.put("pstmtInsert_tDBOutput_1", pstmtInsert_tDBOutput_1);
-	    String update_tDBOutput_1 = "UPDATE \"" + tableName_tDBOutput_1 + "\" SET \"person_uuid\" = ?,\"visit_date\" = ?,\"extra\" = ?,\"refill\" = ?,\"next_appointment\" = ?,\"prescription_error\" = ?,\"adherence\" = ?,\"dsd_model_type\" = ?,\"adr_screened\" = ?,\"archived\" = ?,\"created_by\" = ?,\"last_modified_by\" = ?,\"last_modified_date\" = ?,\"created_date\" = ?,\"facility_id\" = ?,\"uuid\" = ?,\"mmd_type\" = ?,\"ipt\" = ? WHERE \"id\" = ?";
+	    String update_tDBOutput_1 = "UPDATE \"" + tableName_tDBOutput_1 + "\" SET \"person_uuid\" = ?,\"visit_date\" = ?,\"extra\" = ?,\"refill_period\" = ?,\"next_appointment\" = ?,\"prescription_error\" = ?,\"adherence\" = ?,\"dsd_model_type\" = ?,\"adr_screened\" = ?,\"archived\" = ?,\"created_by\" = ?,\"last_modified_by\" = ?,\"last_modified_date\" = ?,\"created_date\" = ?,\"facility_id\" = ?,\"uuid\" = ?,\"mmd_type\" = ?,\"ipt\" = ? WHERE \"id\" = ?";
 	    java.sql.PreparedStatement pstmtUpdate_tDBOutput_1 = conn_tDBOutput_1.prepareStatement(update_tDBOutput_1);
 	    resourceMap.put("pstmtUpdate_tDBOutput_1", pstmtUpdate_tDBOutput_1);
 	    
@@ -2752,7 +2755,7 @@ Pharmacy_All_Extract = null;
 Pharmacy_All_Extract_tmp.person_uuid = row1.person_uuid ;
 Pharmacy_All_Extract_tmp.visit_date = row1.date_visit ;
 Pharmacy_All_Extract_tmp.extra = row1.extra ;
-Pharmacy_All_Extract_tmp.refill = row2.duration ;
+Pharmacy_All_Extract_tmp.refill_period = row2.duration ;
 Pharmacy_All_Extract_tmp.next_appointment = row2.next_appointment ;
 Pharmacy_All_Extract_tmp.id = row3.id ;
 Pharmacy_All_Extract_tmp.prescription_error = row3.prescription_error ;
@@ -2862,9 +2865,9 @@ pstmtUpdate_tDBOutput_1.setNull(3, java.sql.Types.VARCHAR);
 } else {pstmtUpdate_tDBOutput_1.setString(3, Pharmacy_All_Extract.extra);
 }
 
-                        if(Pharmacy_All_Extract.refill == null) {
+                        if(Pharmacy_All_Extract.refill_period == null) {
 pstmtUpdate_tDBOutput_1.setNull(4, java.sql.Types.INTEGER);
-} else {pstmtUpdate_tDBOutput_1.setInt(4, Pharmacy_All_Extract.refill);
+} else {pstmtUpdate_tDBOutput_1.setInt(4, Pharmacy_All_Extract.refill_period);
 }
 
                         if(Pharmacy_All_Extract.next_appointment != null) {
@@ -2967,9 +2970,9 @@ pstmtInsert_tDBOutput_1.setNull(3, java.sql.Types.VARCHAR);
 } else {pstmtInsert_tDBOutput_1.setString(3, Pharmacy_All_Extract.extra);
 }
 
-                        if(Pharmacy_All_Extract.refill == null) {
+                        if(Pharmacy_All_Extract.refill_period == null) {
 pstmtInsert_tDBOutput_1.setNull(4, java.sql.Types.INTEGER);
-} else {pstmtInsert_tDBOutput_1.setInt(4, Pharmacy_All_Extract.refill);
+} else {pstmtInsert_tDBOutput_1.setInt(4, Pharmacy_All_Extract.refill_period);
 }
 
                         if(Pharmacy_All_Extract.next_appointment != null) {
@@ -3552,10 +3555,10 @@ public static class Pharmacy_Filled_DateStruct implements routines.system.IPersi
 					return this.extra;
 				}
 				
-			    public Integer refill;
+			    public Integer refill_period;
 
-				public Integer getRefill () {
-					return this.refill;
+				public Integer getRefill_period () {
+					return this.refill_period;
 				}
 				
 			    public java.util.Date next_appointment;
@@ -3683,7 +3686,7 @@ public static class Pharmacy_Filled_DateStruct implements routines.system.IPersi
 		other.person_uuid = this.person_uuid;
 	            other.visit_date = this.visit_date;
 	            other.extra = this.extra;
-	            other.refill = this.refill;
+	            other.refill_period = this.refill_period;
 	            other.next_appointment = this.next_appointment;
 	            other.id = this.id;
 	            other.prescription_error = this.prescription_error;
@@ -3796,7 +3799,7 @@ public static class Pharmacy_Filled_DateStruct implements routines.system.IPersi
 					
 					this.extra = readString(dis);
 					
-						this.refill = readInteger(dis);
+						this.refill_period = readInteger(dis);
 					
 					this.next_appointment = readDate(dis);
 					
@@ -3875,7 +3878,7 @@ public static class Pharmacy_Filled_DateStruct implements routines.system.IPersi
 					
 					// Integer
 				
-						writeInteger(this.refill,dos);
+						writeInteger(this.refill_period,dos);
 					
 					// java.util.Date
 				
@@ -3968,7 +3971,7 @@ public static class Pharmacy_Filled_DateStruct implements routines.system.IPersi
 		sb.append("person_uuid="+person_uuid);
 		sb.append(",visit_date="+String.valueOf(visit_date));
 		sb.append(",extra="+extra);
-		sb.append(",refill="+String.valueOf(refill));
+		sb.append(",refill_period="+String.valueOf(refill_period));
 		sb.append(",next_appointment="+String.valueOf(next_appointment));
 		sb.append(",id="+String.valueOf(id));
 		sb.append(",prescription_error="+String.valueOf(prescription_error));
@@ -4053,10 +4056,10 @@ public static class row6Struct implements routines.system.IPersistableRow<row6St
 					return this.extra;
 				}
 				
-			    public Integer refill;
+			    public Integer refill_period;
 
-				public Integer getRefill () {
-					return this.refill;
+				public Integer getRefill_period () {
+					return this.refill_period;
 				}
 				
 			    public java.util.Date next_appointment;
@@ -4237,7 +4240,7 @@ public static class row6Struct implements routines.system.IPersistableRow<row6St
 					
 					this.extra = readString(dis);
 					
-						this.refill = readInteger(dis);
+						this.refill_period = readInteger(dis);
 					
 					this.next_appointment = readDate(dis);
 					
@@ -4316,7 +4319,7 @@ public static class row6Struct implements routines.system.IPersistableRow<row6St
 					
 					// Integer
 				
-						writeInteger(this.refill,dos);
+						writeInteger(this.refill_period,dos);
 					
 					// java.util.Date
 				
@@ -4409,7 +4412,7 @@ public static class row6Struct implements routines.system.IPersistableRow<row6St
 		sb.append("person_uuid="+person_uuid);
 		sb.append(",visit_date="+String.valueOf(visit_date));
 		sb.append(",extra="+extra);
-		sb.append(",refill="+String.valueOf(refill));
+		sb.append(",refill_period="+String.valueOf(refill_period));
 		sb.append(",next_appointment="+String.valueOf(next_appointment));
 		sb.append(",id="+String.valueOf(id));
 		sb.append(",prescription_error="+String.valueOf(prescription_error));
@@ -4496,10 +4499,10 @@ public static class after_tDBInput_6Struct implements routines.system.IPersistab
 					return this.extra;
 				}
 				
-			    public Integer refill;
+			    public Integer refill_period;
 
-				public Integer getRefill () {
-					return this.refill;
+				public Integer getRefill_period () {
+					return this.refill_period;
 				}
 				
 			    public java.util.Date next_appointment;
@@ -4627,7 +4630,7 @@ public static class after_tDBInput_6Struct implements routines.system.IPersistab
 		other.person_uuid = this.person_uuid;
 	            other.visit_date = this.visit_date;
 	            other.extra = this.extra;
-	            other.refill = this.refill;
+	            other.refill_period = this.refill_period;
 	            other.next_appointment = this.next_appointment;
 	            other.id = this.id;
 	            other.prescription_error = this.prescription_error;
@@ -4740,7 +4743,7 @@ public static class after_tDBInput_6Struct implements routines.system.IPersistab
 					
 					this.extra = readString(dis);
 					
-						this.refill = readInteger(dis);
+						this.refill_period = readInteger(dis);
 					
 					this.next_appointment = readDate(dis);
 					
@@ -4819,7 +4822,7 @@ public static class after_tDBInput_6Struct implements routines.system.IPersistab
 					
 					// Integer
 				
-						writeInteger(this.refill,dos);
+						writeInteger(this.refill_period,dos);
 					
 					// java.util.Date
 				
@@ -4912,7 +4915,7 @@ public static class after_tDBInput_6Struct implements routines.system.IPersistab
 		sb.append("person_uuid="+person_uuid);
 		sb.append(",visit_date="+String.valueOf(visit_date));
 		sb.append(",extra="+extra);
-		sb.append(",refill="+String.valueOf(refill));
+		sb.append(",refill_period="+String.valueOf(refill_period));
 		sb.append(",next_appointment="+String.valueOf(next_appointment));
 		sb.append(",id="+String.valueOf(id));
 		sb.append(",prescription_error="+String.valueOf(prescription_error));
@@ -5108,10 +5111,10 @@ int count_tDBOutput_2=0;
                                 }
                                 if(!whetherExist_tDBOutput_2) {
                                     try (java.sql.Statement stmtCreate_tDBOutput_2 = conn_tDBOutput_2.createStatement()) {
-                                        stmtCreate_tDBOutput_2.execute("CREATE TABLE \"" + tableName_tDBOutput_2 + "\"(\"person_uuid\" VARCHAR(36)   not null ,\"visit_date\" DATE  not null ,\"extra\" VARCHAR(2000)   not null ,\"refill\" INT4 ,\"next_appointment\" DATE ,\"id\" INT8  not null ,\"prescription_error\" BOOL ,\"adherence\" BOOL ,\"dsd_model_type\" VARCHAR(150)  ,\"adr_screened\" BOOL ,\"archived\" INT4  not null ,\"created_by\" TEXT  not null ,\"last_modified_by\" TEXT  not null ,\"last_modified_date\" TIMESTAMP(29)   not null ,\"created_date\" TIMESTAMP(29)   not null ,\"facility_id\" INT4 ,\"uuid\" TEXT  not null ,\"mmd_type\" VARCHAR(100)  ,\"ipt\" VARCHAR(1000)  ,primary key(\"id\"))");
+                                        stmtCreate_tDBOutput_2.execute("CREATE TABLE \"" + tableName_tDBOutput_2 + "\"(\"person_uuid\" VARCHAR(36)   not null ,\"visit_date\" DATE  not null ,\"extra\" VARCHAR(2000)   not null ,\"refill_period\" INT4 ,\"next_appointment\" DATE ,\"id\" INT8  not null ,\"prescription_error\" BOOL ,\"adherence\" BOOL ,\"dsd_model_type\" VARCHAR(150)  ,\"adr_screened\" BOOL ,\"archived\" INT4  not null ,\"created_by\" TEXT  not null ,\"last_modified_by\" TEXT  not null ,\"last_modified_date\" TIMESTAMP(29)   not null ,\"created_date\" TIMESTAMP(29)   not null ,\"facility_id\" INT4 ,\"uuid\" TEXT  not null ,\"mmd_type\" VARCHAR(100)  ,\"ipt\" VARCHAR(1000)  ,primary key(\"id\"))");
                                     }
                                 }
-	    String update_tDBOutput_2 = "UPDATE \"" + tableName_tDBOutput_2 + "\" SET \"person_uuid\" = ?,\"visit_date\" = ?,\"extra\" = ?,\"refill\" = ?,\"next_appointment\" = ?,\"prescription_error\" = ?,\"adherence\" = ?,\"dsd_model_type\" = ?,\"adr_screened\" = ?,\"archived\" = ?,\"created_by\" = ?,\"last_modified_by\" = ?,\"last_modified_date\" = ?,\"created_date\" = ?,\"facility_id\" = ?,\"uuid\" = ?,\"mmd_type\" = ?,\"ipt\" = ? WHERE \"id\" = ?";
+	    String update_tDBOutput_2 = "UPDATE \"" + tableName_tDBOutput_2 + "\" SET \"person_uuid\" = ?,\"visit_date\" = ?,\"extra\" = ?,\"refill_period\" = ?,\"next_appointment\" = ?,\"prescription_error\" = ?,\"adherence\" = ?,\"dsd_model_type\" = ?,\"adr_screened\" = ?,\"archived\" = ?,\"created_by\" = ?,\"last_modified_by\" = ?,\"last_modified_date\" = ?,\"created_date\" = ?,\"facility_id\" = ?,\"uuid\" = ?,\"mmd_type\" = ?,\"ipt\" = ? WHERE \"id\" = ?";
 	    java.sql.PreparedStatement pstmt_tDBOutput_2 = conn_tDBOutput_2.prepareStatement(update_tDBOutput_2);
 	    resourceMap.put("pstmt_tDBOutput_2", pstmt_tDBOutput_2);
 	    
@@ -5244,7 +5247,7 @@ Pharmacy_Filled_DateStruct Pharmacy_Filled_Date_tmp = new Pharmacy_Filled_DateSt
 		    
 			java.sql.Statement stmt_tDBInput_6 = conn_tDBInput_6.createStatement();
 
-		    String dbquery_tDBInput_6 = "SELECT * FROM etl_pharmacy_stage\nwhere refill is null";
+		    String dbquery_tDBInput_6 = "SELECT * FROM etl_pharmacy_stage\nwhere refill_period is null";
 			
 
             	globalMap.put("tDBInput_6_QUERY",dbquery_tDBInput_6);
@@ -5280,12 +5283,12 @@ Pharmacy_Filled_DateStruct Pharmacy_Filled_Date_tmp = new Pharmacy_Filled_DateSt
         	row6.extra = routines.system.JDBCUtil.getString(rs_tDBInput_6, 3, false);
 		                    }
 							if(colQtyInRs_tDBInput_6 < 4) {
-								row6.refill = null;
+								row6.refill_period = null;
 							} else {
 		                          
-            row6.refill = rs_tDBInput_6.getInt(4);
+            row6.refill_period = rs_tDBInput_6.getInt(4);
             if(rs_tDBInput_6.wasNull()){
-                    row6.refill = null;
+                    row6.refill_period = null;
             }
 		                    }
 							if(colQtyInRs_tDBInput_6 < 5) {
@@ -5597,7 +5600,7 @@ Pharmacy_Filled_Date = null;
 Pharmacy_Filled_Date_tmp.person_uuid = row6.person_uuid ;
 Pharmacy_Filled_Date_tmp.visit_date = row6.visit_date ;
 Pharmacy_Filled_Date_tmp.extra = row6.extra ;
-Pharmacy_Filled_Date_tmp.refill = row7.duration;
+Pharmacy_Filled_Date_tmp.refill_period = row7.duration;
 Pharmacy_Filled_Date_tmp.next_appointment = row7.next_appointment ;
 Pharmacy_Filled_Date_tmp.id = row6.id ;
 Pharmacy_Filled_Date_tmp.prescription_error = row6.prescription_error ;
@@ -5698,9 +5701,9 @@ pstmt_tDBOutput_2.setNull(3, java.sql.Types.VARCHAR);
 } else {pstmt_tDBOutput_2.setString(3, Pharmacy_Filled_Date.extra);
 }
 
-                    if(Pharmacy_Filled_Date.refill == null) {
+                    if(Pharmacy_Filled_Date.refill_period == null) {
 pstmt_tDBOutput_2.setNull(4, java.sql.Types.INTEGER);
-} else {pstmt_tDBOutput_2.setInt(4, Pharmacy_Filled_Date.refill);
+} else {pstmt_tDBOutput_2.setInt(4, Pharmacy_Filled_Date.refill_period);
 }
 
                     if(Pharmacy_Filled_Date.next_appointment != null) {
@@ -6317,10 +6320,10 @@ public static class out1Struct implements routines.system.IPersistableRow<out1St
 					return this.extra;
 				}
 				
-			    public Integer refill;
+			    public Integer refill_period;
 
-				public Integer getRefill () {
-					return this.refill;
+				public Integer getRefill_period () {
+					return this.refill_period;
 				}
 				
 			    public java.util.Date next_appointment;
@@ -6454,7 +6457,7 @@ public static class out1Struct implements routines.system.IPersistableRow<out1St
 		other.person_uuid = this.person_uuid;
 	            other.visit_date = this.visit_date;
 	            other.extra = this.extra;
-	            other.refill = this.refill;
+	            other.refill_period = this.refill_period;
 	            other.next_appointment = this.next_appointment;
 	            other.id = this.id;
 	            other.prescription_error = this.prescription_error;
@@ -6568,7 +6571,7 @@ public static class out1Struct implements routines.system.IPersistableRow<out1St
 					
 					this.extra = readString(dis);
 					
-						this.refill = readInteger(dis);
+						this.refill_period = readInteger(dis);
 					
 					this.next_appointment = readDate(dis);
 					
@@ -6649,7 +6652,7 @@ public static class out1Struct implements routines.system.IPersistableRow<out1St
 					
 					// Integer
 				
-						writeInteger(this.refill,dos);
+						writeInteger(this.refill_period,dos);
 					
 					// java.util.Date
 				
@@ -6746,7 +6749,7 @@ public static class out1Struct implements routines.system.IPersistableRow<out1St
 		sb.append("person_uuid="+person_uuid);
 		sb.append(",visit_date="+String.valueOf(visit_date));
 		sb.append(",extra="+extra);
-		sb.append(",refill="+String.valueOf(refill));
+		sb.append(",refill_period="+String.valueOf(refill_period));
 		sb.append(",next_appointment="+String.valueOf(next_appointment));
 		sb.append(",id="+String.valueOf(id));
 		sb.append(",prescription_error="+String.valueOf(prescription_error));
@@ -6832,10 +6835,10 @@ public static class row8Struct implements routines.system.IPersistableRow<row8St
 					return this.extra;
 				}
 				
-			    public Integer refill;
+			    public Integer refill_period;
 
-				public Integer getRefill () {
-					return this.refill;
+				public Integer getRefill_period () {
+					return this.refill_period;
 				}
 				
 			    public java.util.Date next_appointment;
@@ -7016,7 +7019,7 @@ public static class row8Struct implements routines.system.IPersistableRow<row8St
 					
 					this.extra = readString(dis);
 					
-						this.refill = readInteger(dis);
+						this.refill_period = readInteger(dis);
 					
 					this.next_appointment = readDate(dis);
 					
@@ -7095,7 +7098,7 @@ public static class row8Struct implements routines.system.IPersistableRow<row8St
 					
 					// Integer
 				
-						writeInteger(this.refill,dos);
+						writeInteger(this.refill_period,dos);
 					
 					// java.util.Date
 				
@@ -7188,7 +7191,7 @@ public static class row8Struct implements routines.system.IPersistableRow<row8St
 		sb.append("person_uuid="+person_uuid);
 		sb.append(",visit_date="+String.valueOf(visit_date));
 		sb.append(",extra="+extra);
-		sb.append(",refill="+String.valueOf(refill));
+		sb.append(",refill_period="+String.valueOf(refill_period));
 		sb.append(",next_appointment="+String.valueOf(next_appointment));
 		sb.append(",id="+String.valueOf(id));
 		sb.append(",prescription_error="+String.valueOf(prescription_error));
@@ -7275,10 +7278,10 @@ public static class after_tDBInput_8Struct implements routines.system.IPersistab
 					return this.extra;
 				}
 				
-			    public Integer refill;
+			    public Integer refill_period;
 
-				public Integer getRefill () {
-					return this.refill;
+				public Integer getRefill_period () {
+					return this.refill_period;
 				}
 				
 			    public java.util.Date next_appointment;
@@ -7406,7 +7409,7 @@ public static class after_tDBInput_8Struct implements routines.system.IPersistab
 		other.person_uuid = this.person_uuid;
 	            other.visit_date = this.visit_date;
 	            other.extra = this.extra;
-	            other.refill = this.refill;
+	            other.refill_period = this.refill_period;
 	            other.next_appointment = this.next_appointment;
 	            other.id = this.id;
 	            other.prescription_error = this.prescription_error;
@@ -7519,7 +7522,7 @@ public static class after_tDBInput_8Struct implements routines.system.IPersistab
 					
 					this.extra = readString(dis);
 					
-						this.refill = readInteger(dis);
+						this.refill_period = readInteger(dis);
 					
 					this.next_appointment = readDate(dis);
 					
@@ -7598,7 +7601,7 @@ public static class after_tDBInput_8Struct implements routines.system.IPersistab
 					
 					// Integer
 				
-						writeInteger(this.refill,dos);
+						writeInteger(this.refill_period,dos);
 					
 					// java.util.Date
 				
@@ -7691,7 +7694,7 @@ public static class after_tDBInput_8Struct implements routines.system.IPersistab
 		sb.append("person_uuid="+person_uuid);
 		sb.append(",visit_date="+String.valueOf(visit_date));
 		sb.append(",extra="+extra);
-		sb.append(",refill="+String.valueOf(refill));
+		sb.append(",refill_period="+String.valueOf(refill_period));
 		sb.append(",next_appointment="+String.valueOf(next_appointment));
 		sb.append(",id="+String.valueOf(id));
 		sb.append(",prescription_error="+String.valueOf(prescription_error));
@@ -7863,10 +7866,10 @@ String dbUser_tDBOutput_3 = null;
 int count_tDBOutput_3=0;
 	    java.sql.PreparedStatement pstmt_tDBOutput_3 = conn_tDBOutput_3.prepareStatement("SELECT COUNT(1) FROM \"" + tableName_tDBOutput_3 + "\" WHERE \"id\" = ?");
 	    resourceMap.put("pstmt_tDBOutput_3", pstmt_tDBOutput_3);
-	    String insert_tDBOutput_3 = "INSERT INTO \"" + tableName_tDBOutput_3 + "\" (\"person_uuid\",\"visit_date\",\"" + "extra" + "\",\"refill\",\"next_appointment\",\"id\",\"prescription_error\",\"adherence\",\"dsd_model_type\",\"ard_screened\",\"archived\",\"created_by\",\"last_modified_by\",\"last_modified_date\",\"created_date\",\"facility_id\",\"uuid\",\"mmd_type\",\"" + "ipt" + "\",\"visit_id\") VALUES (?,?," + "?::jsonb" + ",?,?,?,?,?,?,?,?,?,?,?,?,?,?,?," + "?::jsonb" + ",?)";
+	    String insert_tDBOutput_3 = "INSERT INTO \"" + tableName_tDBOutput_3 + "\" (\"person_uuid\",\"visit_date\",\"" + "extra" + "\",\"refill_period\",\"next_appointment\",\"id\",\"prescription_error\",\"adherence\",\"dsd_model_type\",\"ard_screened\",\"archived\",\"created_by\",\"last_modified_by\",\"last_modified_date\",\"created_date\",\"facility_id\",\"uuid\",\"mmd_type\",\"" + "ipt" + "\",\"visit_id\") VALUES (?,?," + "?::jsonb" + ",?,?,?,?,?,?,?,?,?,?,?,?,?,?,?," + "?::jsonb" + ",?)";
 	    java.sql.PreparedStatement pstmtInsert_tDBOutput_3 = conn_tDBOutput_3.prepareStatement(insert_tDBOutput_3);
 	    resourceMap.put("pstmtInsert_tDBOutput_3", pstmtInsert_tDBOutput_3);
-	    String update_tDBOutput_3 = "UPDATE \"" + tableName_tDBOutput_3 + "\" SET \"person_uuid\" = ?,\"visit_date\" = ?,\"" + "extra" + "\" = " + "?::jsonb" + ",\"refill\" = ?,\"next_appointment\" = ?,\"prescription_error\" = ?,\"adherence\" = ?,\"dsd_model_type\" = ?,\"ard_screened\" = ?,\"archived\" = ?,\"created_by\" = ?,\"last_modified_by\" = ?,\"last_modified_date\" = ?,\"created_date\" = ?,\"facility_id\" = ?,\"uuid\" = ?,\"mmd_type\" = ?,\"" + "ipt" + "\" = " + "?::jsonb" + ",\"visit_id\" = ? WHERE \"id\" = ?";
+	    String update_tDBOutput_3 = "UPDATE \"" + tableName_tDBOutput_3 + "\" SET \"person_uuid\" = ?,\"visit_date\" = ?,\"" + "extra" + "\" = " + "?::jsonb" + ",\"refill_period\" = ?,\"next_appointment\" = ?,\"prescription_error\" = ?,\"adherence\" = ?,\"dsd_model_type\" = ?,\"ard_screened\" = ?,\"archived\" = ?,\"created_by\" = ?,\"last_modified_by\" = ?,\"last_modified_date\" = ?,\"created_date\" = ?,\"facility_id\" = ?,\"uuid\" = ?,\"mmd_type\" = ?,\"" + "ipt" + "\" = " + "?::jsonb" + ",\"visit_id\" = ? WHERE \"id\" = ?";
 	    java.sql.PreparedStatement pstmtUpdate_tDBOutput_3 = conn_tDBOutput_3.prepareStatement(update_tDBOutput_3);
 	    resourceMap.put("pstmtUpdate_tDBOutput_3", pstmtUpdate_tDBOutput_3);
 	    
@@ -8035,12 +8038,12 @@ out1Struct out1_tmp = new out1Struct();
         	row8.extra = routines.system.JDBCUtil.getString(rs_tDBInput_8, 3, false);
 		                    }
 							if(colQtyInRs_tDBInput_8 < 4) {
-								row8.refill = null;
+								row8.refill_period = null;
 							} else {
 		                          
-            row8.refill = rs_tDBInput_8.getInt(4);
+            row8.refill_period = rs_tDBInput_8.getInt(4);
             if(rs_tDBInput_8.wasNull()){
-                    row8.refill = null;
+                    row8.refill_period = null;
             }
 		                    }
 							if(colQtyInRs_tDBInput_8 < 5) {
@@ -8341,7 +8344,7 @@ out1 = null;
 out1_tmp.person_uuid = row8.person_uuid ;
 out1_tmp.visit_date = row8.visit_date ;
 out1_tmp.extra = row8.extra ;
-out1_tmp.refill = row8.refill ;
+out1_tmp.refill_period = row8.refill_period ;
 out1_tmp.next_appointment = row8.next_appointment ;
 out1_tmp.id = row8.id ;
 out1_tmp.prescription_error = row8.prescription_error ;
@@ -8452,9 +8455,9 @@ pstmtUpdate_tDBOutput_3.setNull(3, java.sql.Types.VARCHAR);
 } else {pstmtUpdate_tDBOutput_3.setString(3, out1.extra);
 }
 
-                        if(out1.refill == null) {
+                        if(out1.refill_period == null) {
 pstmtUpdate_tDBOutput_3.setNull(4, java.sql.Types.INTEGER);
-} else {pstmtUpdate_tDBOutput_3.setInt(4, out1.refill);
+} else {pstmtUpdate_tDBOutput_3.setInt(4, out1.refill_period);
 }
 
                         if(out1.next_appointment != null) {
@@ -8562,9 +8565,9 @@ pstmtInsert_tDBOutput_3.setNull(3, java.sql.Types.VARCHAR);
 } else {pstmtInsert_tDBOutput_3.setString(3, out1.extra);
 }
 
-                        if(out1.refill == null) {
+                        if(out1.refill_period == null) {
 pstmtInsert_tDBOutput_3.setNull(4, java.sql.Types.INTEGER);
-} else {pstmtInsert_tDBOutput_3.setInt(4, out1.refill);
+} else {pstmtInsert_tDBOutput_3.setInt(4, out1.refill_period);
 }
 
                         if(out1.next_appointment != null) {
@@ -18020,6 +18023,6 @@ if (execStat) {
     ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- *     441144 characters generated by Talend Open Studio for Big Data 
- *     on the March 22, 2023 4:48:49 PM WAT
+ *     442020 characters generated by Talend Open Studio for Big Data 
+ *     on the March 25, 2023 12:58:02 PM WAT
  ************************************************************************************************/
