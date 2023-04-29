@@ -22,7 +22,8 @@ There are various migration components available here. For a new migration, it i
 - HTS Migration: This component can be found at ./J_HTS_H2/HTS_H2/HTS_H2_run[.bat/.sh]
 - HIV_Status_Tracker Migration: This component can be found at ./K_HIV_Status_Tracker_H2/HIV_Status_Tracker_H2/HIV_Status_Tracker_H2_run[.bat/.sh]
 - Cervical_Cancer Migration: This component can be found at ./L_Cervical_Cancer_H2/Cervical_Cancer_H2/Cervical_Cancer_H2_run[.bat/.sh]
-- PrEP Enrollment Migration: This component can be found at ./M_Prep_Enrollment_H2/M_Prep_Enrollment_H2/M_Prep_Enrollment_H2_run[.bat/.sh]
+- PrEP Patient Migration: This component can be found at ./M1_PrEP_Patient_H2/M1_PrEP_Patient_H2/PrEP_Patient_H2_run[.bat/.sh]
+- PrEP Enrollment Migration: This component can be found at ./M2_Prep_Enrollment_H2/M2_Prep_Enrollment_H2/Prep_Enrollment_H2_run[.bat/.sh]
 - PrEP Clinic Migration: This component can be found at ./N_Prep_Clinic_H2/Prep_Clinic_H2/Prep_Clinic_H2_run[.bat/.sh]
 - NDR Migration: This component can be found at ./O_NDR_Message_XML_Status_H2/NDR_Message_XML_Status_H2/NDR_Message_XML_Status_H2_run[.bat/.sh]
 
