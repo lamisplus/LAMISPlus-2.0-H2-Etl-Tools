@@ -8280,11 +8280,12 @@ public void tDBInput_18Process(final java.util.Map<String, Object> globalMap) th
 		    
 			java.sql.Statement stmt_tDBInput_18 = conn_tDBInput_18.createStatement();
 
-		    String dbquery_tDBInput_18 = "SELECT \n	p.patient_id as patient_id,\n	lamisplus_lga.parent_organisation_unit_id as state_id,\n	p.state as state_name,"
-+"\n	lamisplus_lga.id as district_id,\n	lamisplus_lga.name as district \nFROM patient p\nINNER JOIN\n\npublic.dblink\n('la"
+		    String dbquery_tDBInput_18 = "SELECT \n	p.prepscreening_id as patient_id,\n	lamisplus_lga.parent_organisation_unit_id as state_id,\n	s.name as state_"
++"name,\n	lamisplus_lga.id as district_id,\n	lamisplus_lga.name as district \nFROM prepscreening p\nINNER JOIN\nlga l ON l"
++".lga_id=CAST(p.lga_residence AS BIGINT)\nINNER JOIN\nstate s ON s.state_id = l.state_id\nINNER JOIN\npublic.dblink\n('la"
 +"mis',\n'SELECT \n  f.name, \n  f.id, \n  f.parent_organisation_unit_id\nFROM base_organisation_unit f \nWHERE organisati"
-+"on_unit_level_id=3'\n\n) \nAS lamisplus_lga(name VARCHAR, id bigint, parent_organisation_unit_id bigint)\nON p.lga ilike"
-+" lamisplus_lga.name\n\nORDER BY patient_id ASC";
++"on_unit_level_id=3'\n\n) \nAS lamisplus_lga(name VARCHAR, id bigint, parent_organisation_unit_id bigint)\nON l.name ilik"
++"e lamisplus_lga.name\n\nORDER BY patient_id ASC";
 			
 
             	globalMap.put("tDBInput_18_QUERY",dbquery_tDBInput_18);
@@ -9069,8 +9070,8 @@ public void tDBInput_7Process(final java.util.Map<String, Object> globalMap) thr
 			java.sql.Statement stmt_tDBInput_7 = conn_tDBInput_7.createStatement();
 
 		    String dbquery_tDBInput_7 = "SELECT DISTINCT c.id as codeset_id,codeset_group,\n  lower(left(c.display,8)) as display, c.display as employment_displ"
-+"ay\nFROM public.base_application_codeset c\nINNER JOIN etl_patient_stage h  \n  ON lower(left(c.display,8)) = lower(left"
-+"(h.occupation,8)) \nWHERE c.codeset_group='OCCUPATION';";
++"ay\nFROM public.base_application_codeset c\nINNER JOIN etl_prep_patient_stage_2 h  \n  ON lower(left(c.display,8)) = low"
++"er(left(h.occupation,8)) \nWHERE c.codeset_group='OCCUPATION';";
 			
 
             	globalMap.put("tDBInput_7_QUERY",dbquery_tDBInput_7);
@@ -9841,8 +9842,8 @@ public void tDBInput_9Process(final java.util.Map<String, Object> globalMap) thr
 			java.sql.Statement stmt_tDBInput_9 = conn_tDBInput_9.createStatement();
 
 		    String dbquery_tDBInput_9 = "SELECT DISTINCT c.id as codeset_id,codeset_group,\n  lower(left(c.display,8)) as display, c.display as kin_display\nFRO"
-+"M public.base_application_codeset c\nINNER JOIN etl_patient_stage h  \n  ON lower(left(c.display,8)) = lower(left(h.next"
-+"_of_kin_relationship,8)) \nWHERE c.codeset_group='RELATIONSHIP';";
++"M public.base_application_codeset c\nINNER JOIN etl_prep_patient_stage_2 h  \n  ON lower(left(c.display,8)) = lower(left"
++"(h.next_of_kin_relationship,8)) \nWHERE c.codeset_group='RELATIONSHIP';";
 			
 
             	globalMap.put("tDBInput_9_QUERY",dbquery_tDBInput_9);
@@ -10625,8 +10626,8 @@ public void tDBInput_5Process(final java.util.Map<String, Object> globalMap) thr
 			java.sql.Statement stmt_tDBInput_5 = conn_tDBInput_5.createStatement();
 
 		    String dbquery_tDBInput_5 = "SELECT DISTINCT c.id as codeset_id,codeset_group,\n  lower(left(c.display,4)) as display, lower(left(h.education,4)) as"
-+" education,c.display as education_display\nFROM public.base_application_codeset c\nINNER JOIN etl_patient_stage h  \n  O"
-+"N display = education \nWHERE c.codeset_group = 'EDUCATION'";
++" education,c.display as education_display\nFROM public.base_application_codeset c\nINNER JOIN etl_prep_patient_stage_2 h"
++"  \n  ON display = education \nWHERE c.codeset_group = 'EDUCATION'";
 			
 
             	globalMap.put("tDBInput_5_QUERY",dbquery_tDBInput_5);
@@ -11417,8 +11418,8 @@ public void tDBInput_1Process(final java.util.Map<String, Object> globalMap) thr
 			java.sql.Statement stmt_tDBInput_1 = conn_tDBInput_1.createStatement();
 
 		    String dbquery_tDBInput_1 = "SELECT DISTINCT c.id as codeset_id,codeset_group,\n  lower(left(c.display,4)) as display, lower(left(h.marital_status,4"
-+")) as marital_status,c.display as status_display\nFROM public.base_application_codeset c\nINNER JOIN etl_patient_stage h"
-+"  \n  ON display = marital_status \nWHERE c.codeset_group = 'MARITAL_STATUS'";
++")) as marital_status,c.display as status_display\nFROM public.base_application_codeset c\nINNER JOIN etl_prep_patient_st"
++"age_2 h  \n  ON display = marital_status \nWHERE c.codeset_group = 'MARITAL_STATUS'";
 			
 
             	globalMap.put("tDBInput_1_QUERY",dbquery_tDBInput_1);
@@ -12973,8 +12974,8 @@ public void tDBInput_3Process(final java.util.Map<String, Object> globalMap) thr
 			java.sql.Statement stmt_tDBInput_3 = conn_tDBInput_3.createStatement();
 
 		    String dbquery_tDBInput_3 = "SELECT DISTINCT c.id as codeset_id,codeset_group,\n  lower(left(c.display,8)) as display, c.display as display_gender\n"
-+"FROM public.base_application_codeset c\nINNER JOIN etl_patient_stage h  \n  ON lower(left(c.display,4)) =  lower(left(h."
-+"gender,4)) \nWHERE c.codeset_group='GENDER';";
++"FROM public.base_application_codeset c\nINNER JOIN etl_prep_patient_stage_2 h  \n  ON lower(left(c.display,4)) =  lower("
++"left(h.gender,4)) \nWHERE c.codeset_group='GENDER';";
 			
 
             	globalMap.put("tDBInput_3_QUERY",dbquery_tDBInput_3);
@@ -14160,7 +14161,7 @@ EmploymentStruct Employment_tmp = new EmploymentStruct();
 		    
 			java.sql.Statement stmt_tDBInput_8 = conn_tDBInput_8.createStatement();
 
-		    String dbquery_tDBInput_8 = "SELECT person_uuid,lower(left(h.occupation,8)) as employment_status \nFROM etl_patient_stage h";
+		    String dbquery_tDBInput_8 = "SELECT uuid AS person_uuid,lower(left(h.occupation,8)) as employment_status \nFROM etl_prep_patient_stage_2 h";
 			
 
             	globalMap.put("tDBInput_8_QUERY",dbquery_tDBInput_8);
@@ -15626,7 +15627,8 @@ Nextkin_relationshipStruct Nextkin_relationship_tmp = new Nextkin_relationshipSt
 		    
 			java.sql.Statement stmt_tDBInput_10 = conn_tDBInput_10.createStatement();
 
-		    String dbquery_tDBInput_10 = "SELECT person_uuid,lower(left(h.next_of_kin_relationship,8)) as contact_relationship\nFROM etl_patient_stage h";
+		    String dbquery_tDBInput_10 = "SELECT h.uuid  AS person_uuid,lower(left(h.next_of_kin_relationship,8)) as contact_relationship\nFROM etl_prep_patient_"
++"stage_2 h";
 			
 
             	globalMap.put("tDBInput_10_QUERY",dbquery_tDBInput_10);
@@ -17143,8 +17145,8 @@ EducationStruct Education_tmp = new EducationStruct();
 		    
 			java.sql.Statement stmt_tDBInput_6 = conn_tDBInput_6.createStatement();
 
-		    String dbquery_tDBInput_6 = "SELECT h.patient_id, h.person_uuid, lower(left(h.education,4)) as display, h.education as education\nFROM etl_patient_s"
-+"tage h";
+		    String dbquery_tDBInput_6 = "SELECT h.id AS patient_id, h.uuid AS person_uuid, lower(left(h.education,4)) as display, h.education as education\nFROM"
++" etl_prep_patient_stage_2 h";
 			
 
             	globalMap.put("tDBInput_6_QUERY",dbquery_tDBInput_6);
@@ -18628,7 +18630,7 @@ Marital_statusStruct Marital_status_tmp = new Marital_statusStruct();
 		    
 			java.sql.Statement stmt_tDBInput_2 = conn_tDBInput_2.createStatement();
 
-		    String dbquery_tDBInput_2 = "SELECT person_uuid,lower(left(h.marital_status,4)) as marital_status \nFROM etl_patient_stage h";
+		    String dbquery_tDBInput_2 = "SELECT uuid AS person_uuid,lower(left(h.marital_status,4)) as marital_status \nFROM etl_prep_patient_stage_2 h";
 			
 
             	globalMap.put("tDBInput_2_QUERY",dbquery_tDBInput_2);
@@ -20060,7 +20062,7 @@ GenderStruct Gender_tmp = new GenderStruct();
 		    
 			java.sql.Statement stmt_tDBInput_4 = conn_tDBInput_4.createStatement();
 
-		    String dbquery_tDBInput_4 = "SELECT person_uuid,lower(left(h.gender,8)) as gender,h.gender as sex\nFROM etl_patient_stage h";
+		    String dbquery_tDBInput_4 = "SELECT uuid AS person_uuid,lower(left(h.gender,8)) as gender,h.gender as sex\nFROM etl_prep_patient_stage_2 h";
 			
 
             	globalMap.put("tDBInput_4_QUERY",dbquery_tDBInput_4);
@@ -20944,7 +20946,7 @@ public void tDBInput_15Process(final java.util.Map<String, Object> globalMap) th
 		    
 			java.sql.Statement stmt_tDBInput_15 = conn_tDBInput_15.createStatement();
 
-		    String dbquery_tDBInput_15 = "SELECT MAX(id) FROM patient_person";
+		    String dbquery_tDBInput_15 = "SELECT CASE WHEN MAX(id) IS NULL THEN 0 ELSE 0 END AS max FROM patient_person";
 			
 
             	globalMap.put("tDBInput_15_QUERY",dbquery_tDBInput_15);
@@ -31185,7 +31187,7 @@ int count_tDBOutput_1=0;
                                 }
                                 if(!whetherExist_tDBOutput_1) {
                                     try (java.sql.Statement stmtCreate_tDBOutput_1 = conn_tDBOutput_1.createStatement()) {
-                                        stmtCreate_tDBOutput_1.execute("CREATE TABLE \"" + tableName_tDBOutput_1 + "\"(\"id\" SERIAL  not null ,\"hospital_number\" VARCHAR(25)   not null ,\"uuid\" VARCHAR(36)  ,\"first_name\" VARCHAR(230)  ,\"surname\" VARCHAR(45)  ,\"other_name\" VARCHAR(75)  ,\"" + "gender" + "\" VARCHAR(50),\"date_of_birth\" DATE ,\"is_date_of_birth_estimated\" BOOL ,\"" + "education" + "\" VARCHAR(50),\"" + "marital_status" + "\" VARCHAR(50),\"" + "employment_status" + "\" VARCHAR(50),\"" + "address" + "\" VARCHAR(50),\"" + "contact_point" + "\" VARCHAR(50),\"" + "contact" + "\" VARCHAR(50),\"date_of_registration\" DATE  not null ,\"archived\" INT4 ,\"active\" BOOL default true  not null ,\"deceased\" BOOL default false ,\"deceased_date_time\" TIMESTAMP ,\"created_date\" TIMESTAMP ,\"last_modified_date\" TIMESTAMP(29)  ,\"created_by\" VARCHAR ,\"last_modified_by\" VARCHAR ,\"" + "identifier" + "\" VARCHAR(50),\"facility_id\" INT8  not null ,\"" + "organization" + "\" VARCHAR(50),\"sex\" TEXT ,\"full_name\" VARCHAR(100)  ,primary key(\"uuid\",\"sex\"))");
+                                        stmtCreate_tDBOutput_1.execute("CREATE TABLE \"" + tableName_tDBOutput_1 + "\"(\"id\" SERIAL  not null ,\"hospital_number\" VARCHAR(25)   not null ,\"uuid\" VARCHAR(36)  ,\"first_name\" VARCHAR(230)   not null ,\"surname\" VARCHAR(45)  ,\"other_name\" VARCHAR(75)  ,\"" + "gender" + "\" VARCHAR(50),\"date_of_birth\" DATE ,\"is_date_of_birth_estimated\" BOOL ,\"" + "education" + "\" VARCHAR(50),\"" + "marital_status" + "\" VARCHAR(50),\"" + "employment_status" + "\" VARCHAR(50),\"" + "address" + "\" VARCHAR(50),\"" + "contact_point" + "\" VARCHAR(50),\"" + "contact" + "\" VARCHAR(50),\"date_of_registration\" DATE  not null ,\"archived\" INT4 ,\"active\" BOOL default true  not null ,\"deceased\" BOOL default false ,\"deceased_date_time\" TIMESTAMP ,\"created_date\" TIMESTAMP ,\"last_modified_date\" TIMESTAMP(29)  ,\"created_by\" VARCHAR ,\"last_modified_by\" VARCHAR ,\"" + "identifier" + "\" VARCHAR(50),\"facility_id\" INT8  not null ,\"" + "organization" + "\" VARCHAR(50),\"sex\" TEXT ,\"full_name\" VARCHAR(100)   not null ,primary key(\"id\",\"sex\"))");
                                     }
                                 }
 	    String update_tDBOutput_1 = "UPDATE \"" + tableName_tDBOutput_1 + "\" SET \"id\" = ?,\"hospital_number\" = ?,\"uuid\" = ?,\"first_name\" = ?,\"surname\" = ?,\"other_name\" = ?,\"" + "gender" + "\" = " + "?::json" + ",\"date_of_birth\" = ?,\"is_date_of_birth_estimated\" = ?,\"" + "education" + "\" = " + "?::json" + ",\"" + "marital_status" + "\" = " + "?::json" + ",\"" + "employment_status" + "\" = " + "?::json" + ",\"" + "address" + "\" = " + "?::json" + ",\"" + "contact_point" + "\" = " + "?::json" + ",\"" + "contact" + "\" = " + "?::json" + ",\"date_of_registration\" = ?,\"archived\" = ?,\"active\" = ?,\"deceased\" = ?,\"deceased_date_time\" = ?,\"created_date\" = ?,\"last_modified_date\" = ?,\"created_by\" = ?,\"last_modified_by\" = ?,\"" + "identifier" + "\" = " + "?::json" + ",\"facility_id\" = ?,\"" + "organization" + "\" = " + "?::json" + ",\"sex\" = ?,\"full_name\" = ? WHERE \"id\" = ? AND \"uuid\" = ?";
@@ -34296,6 +34298,6 @@ if (execStat) {
     ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- *     867993 characters generated by Talend Open Studio for Big Data 
- *     on the April 29, 2023 6:24:16 AM WAT
+ *     868302 characters generated by Talend Open Studio for Big Data 
+ *     on the May 3, 2023 4:52:15 PM WAT
  ************************************************************************************************/
